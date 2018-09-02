@@ -1,0 +1,78 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style type="text/css">
+      input[type="text"],select,textarea{min-height:25px}
+    </style>
+    <title>sololearn JS tutorial</title>
+  </head>
+  <body>
+    <h1>formulario</h1>
+    <p>Esse formulario é feito para requesitar o preenchimento de cada campo!</p>
+
+    <form name="meuform">
+
+      First Name: <input type="text" name="firstname" required="" /><br/><br/>
+
+      Last Name: <input type="text" name="lastname" required="" /><br/><br/>
+
+      Country: 
+      <select name="country">
+        <option value=""></option>
+        <option value="australia">Australia</option>
+        <option value="canada">Canada</option>
+        <option value="usa">USA</option>
+      </select><br/><br/>
+
+      <span id="sty">Gender:</span><br />
+      Male: <input type="radio" name="fradio" value="male"/><br />
+      Female: <input type="radio" name="fradio" value="female"/><br /> <br /> 
+
+      Subject: <br/>
+      <textarea name="subject" style="width:300px;height:150px" required="" ></textarea><br/>
+
+      <input type="submit" value="send" name="submit" onclick="validateForm()">
+      <input type="reset" name="reset" id="btn"/>
+    </form>
+
+    
+    <!--AULA ABAIXO-->
+    <script language="javascript">
+    function validateForm() {
+
+      var nome = document.meuform.firstname.value;
+      var sobrenome = document.meuform.lastname.value;
+      var pais = document.meuform.country.value;
+      var sexo = document.meuform.fradio.value;
+      var assunto = document.meuform.subject.value;
+
+      if(nome == ""){
+        alert("NOME, deve preencher");
+      }
+      else if(sobrenome == ""){
+        alert("SOBRENOME, deve preencher");
+      }
+      else if(pais == ""){
+        alert("PAIS, deve preencher");
+      }
+      else if(sexo == ""){
+        alert("GENERO, deve preencher");
+      }
+      else if(assunto == ""){
+        alert("ASSUNTO, deve preencher");
+      }
+      else{
+        document.write("Bem vindo, " + "<b>" + nome + "</b>");
+        document.write("<br/>" + "Sobrenome: " + "<b>" + sobrenome + "</b>");
+        document.write("<br/>" + "Pais: " + "<b>" + pais + "</b>");
+        document.write("<br/>" + "Sexo: " + "<b>" + sexo + "</b>"); 
+        document.write("<br/>" + "Assunto: " + "<br/>" + "<b>" + assunto + "</b>");
+      }
+    }
+    </script>
+
+  </body>
+</html>

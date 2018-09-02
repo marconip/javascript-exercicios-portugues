@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style type="text/css">section{border:1px solid #ccc; padding:20px}b,i{color:red;}</style>
+    <title>Conditionals and Loops</title>
+  </head>
+  <body>
+    <h1>Conditionals and Loops </h1><br/>
+    from www.sololearn.com/Play/JavaScript</h1>
+    
+    <!--AULA ABAIXO-->
+    <section>
+	<b>if Statement</b><br/>
+	Somente se for maior de idade irá mostra alerta!
+	<form>
+ 		<input type="text" name="idade" id="minhaIdade" required="" placeholder="Inseira um número" />
+ 		<input type="button" name="submit" value="Alerta" onclick="validateFormAge()">     		
+    </form>
+
+	<script language="javascript">
+	//soma de valores diferentes, pergunta se um é menor que outro se for esceve...
+	
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>if else Statement</b><br/>
+	Insira um número para saber quem é maior A ou B
+	<form>
+ 		A <input type="number" name="a" id="a" required /><br/>
+ 		B <input type="number" name="b" id="b" required /><br/><br/>
+ 		<input type="button" name="submit" value="Resultado" onclick="validateFormAB()">     		
+    </form><br/>
+    Valor: <i id="valorA"></i>
+
+	<script language="javascript">
+	//soma de valores diferentes, escreve quem é maior se não for escreve que é menor...
+	
+	</script>
+    </section><br/><br/>
+
+	<section>
+	<b>if else if else Statement</b><br/>
+	Selecione um curso
+	<form name="meuform">
+      <select name="cursos">
+        <option value=""></option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+      </select><br/><br/>
+      <input type="button" name="submit" value="Alerta o Curso" onclick="validateForm00()">
+    </form>
+
+	<script language="javascript">
+	//mostra um alerta ao seleciona um valor, se nao seleciona tambem dá
+	
+	</script>
+	</section><br/><br/>
+
+	<section>
+	<b>Switch</b><br/>
+	<form name="minhaform">
+ 		Digita um número para VER O MÊS:<input type="number" name="omes" id="myInput" required max="12" />
+ 		<input type="button" name="submit" value="Mostrar Mês" onclick="validateFormulario()"><br/>
+ 		Mês escolhido acima foi: <b id="demo"></b>
+    </form><br/><br/>
+
+	<form name="myform">
+		Escreva um mês para exibir o aleta com a ESTAÇÃO DO ANO: <br/>
+ 		<input type="text" name="fmeses" id="fmes" required />
+      	<input type="button" name="submit" value="Mostrar Estação" onclick="validateForm()">
+    </form>
+
+    <script language="javascript">
+    //mostra o mês conforme o numero digitado
+	
+	</script>
+
+	
+	<script language="javascript">	
+	//Mostra a estação confome nome do mês digitado
+
+	</script>
+	</section><br/><br/>
+
+	<section>
+	<b>For Loop</b><br/>
+	<div class="xxxx">Pega a lista de curso com a class e acrescenta a palava "curso" antes e "avançado" depois</div><br/>
+	<div class="meuloop">HTML</div>
+    <div class="meuloop">CSS</div>
+    <div class="meuloop">JavaScript</div>
+    <div class="foraLoop">PHP</div>
+
+    <script language="javascript">
+    //Pega uma lista e acrescenta textos antes e depois do texto que já existia na lista
+	
+	</script>
+    </section><br/><br/>
+
+	<section>
+	<b>While Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="form">
+    	<input type="number" name="repeate" required /> 
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreap()"> 
+ 	</form>
+ 	<div id="repeticao"></div>
+
+	<script language="javascript">
+	//faz o loop dizendo, enquanto tiver no loop faz ação X
+	
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Do... while Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="form2">
+    	<input type="number" name="repeate2" required /> 
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreap2()"> 
+ 	</form>
+ 	<div id="repeticao2"></div>
+
+	<script language="javascript">
+	//faça uma ação enquanto o loop estiver em ação
+			
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Break - Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="formA">
+    contar até: <input type="number" name="repeateA" required /> <br/>
+    Para no número: <input type="number" name="stop" required /> <br/>
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreapA()"> 
+ 	</form>
+ 	<div id="repeticaoA"></div>
+
+	<script language="javascript">
+	//Faz um loop até o numero que foi setado parar o loop
+	
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Continue - Loop (com ciação de tag "b" para o texto ficar dentro dela)</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="formB" id="continueLoop">
+    contar até: <input type="number" name="repeateB" required /> <br/>
+    não exibir o número: <input type="number" name="escondeB" required /> <br/>
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreapB()"> 
+ 	</form>
+
+	<script language="javascript">
+	//Faz o loop e esconde o numero que foi setado
+		
+	</script>
+    </section><br/><br/>
+
+  </body>
+</html>

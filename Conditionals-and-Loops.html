@@ -1,0 +1,331 @@
+<!doctype html>
+<html lang="pt-br">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <style type="text/css">section{border:1px solid #ccc; padding:20px}b,i{color:red;}</style>
+    <title>sololearn JS tutorial</title>
+  </head>
+  <body>
+    <h1>Conditionals and Loops </h1><br/>
+    from www.sololearn.com/Play/JavaScript</h1>
+    
+    <!--AULA ABAIXO-->
+    <section>
+	<b>if Statement</b><br/>
+	Somente se for maior de idade irá mostra alerta!
+	<form>
+ 		<input type="text" name="idade" id="minhaIdade" required="" placeholder="Inseira um número" />
+ 		<input type="button" name="submit" value="Alerta" onclick="validateFormAge()">     		
+    </form>
+
+	<script language="javascript">
+	//soma de valores diferentes, pergunta se um é menor que outro se for esceve...
+	function validateFormAge(){
+		var idade = document.getElementById("minhaIdade").value;	    	
+		var maior = 18;
+		var resultIdade;
+		if (idade >= maior) {
+			alert("Você é maior de idade, \ntem 18 anos ou mais");
+		}
+	}
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>if else Statement</b><br/>
+	Insira um número para saber quem é maior A ou B
+	<form>
+ 		A <input type="number" name="a" id="a" required /><br/>
+ 		B <input type="number" name="b" id="b" required /><br/><br/>
+ 		<input type="button" name="submit" value="Resultado" onclick="validateFormAB()">     		
+    </form><br/>
+    Valor: <i id="valorA"></i>
+
+	<script language="javascript">
+	//soma de valores diferentes, escreve quem é maior se não for escreve que é menor...
+	function validateFormAB(){
+		var valA = document.getElementById("a").value;
+		var valB = document.getElementById("b").value;
+		var resulta;
+		if(valA > valB) {
+			resulta = "A é maior que B";
+		}
+		else{
+			resulta = "B é maior que A";	
+		}
+		document.getElementById("valorA").innerHTML = resulta;
+	}
+	</script>
+    </section><br/><br/>
+
+	<section>
+	<b>if else if else Statement</b><br/>
+	Selecione um curso
+	<form name="meuform">
+      <select name="cursos">
+        <option value=""></option>
+        <option value="html">HTML</option>
+        <option value="css">CSS</option>
+      </select><br/><br/>
+      <input type="button" name="submit" value="Alerta o Curso" onclick="validateForm00()">
+    </form>
+
+	<script language="javascript">
+	//mostra um alerta ao seleciona um valor, se nao seleciona tambem dá
+	function validateForm00() {
+    	var curso = document.meuform.cursos.value;
+		if (curso == "html") {
+		   alert("HTML Selecionado");
+		} else if (curso == "css") {
+		   alert("CSS Selecionado");
+		} else {
+		   alert("Selecione um curso");
+		}
+	}
+	</script>
+	</section><br/><br/>
+
+	<section>
+	<b>Switch</b><br/>
+	<form name="minhaform">
+ 		Digita um número para VER O MÊS:<input type="number" name="omes" id="myInput" required max="12" />
+ 		<input type="button" name="submit" value="Mostrar Mês" onclick="validateFormulario()"><br/>
+ 		Mês escolhido acima foi: <b id="demo"></b>
+    </form><br/><br/>
+
+	<form name="myform">
+		Escreva um mês para exibir o aleta com a ESTAÇÃO DO ANO: <br/>
+ 		<input type="text" name="fmeses" id="fmes" required />
+      	<input type="button" name="submit" value="Mostrar Estação" onclick="validateForm()">
+    </form>
+
+    <script language="javascript">//mostra o mês conforme o numero digitado
+	function validateFormulario() {
+		var text;
+		var numeroMes = document.getElementById("myInput").value;		
+
+		switch (numeroMes) {
+//OUTRO EXEMPLO
+/*PARA ESCREVER DIA DA SEMANA
+		  case "1":
+		  case "2":
+		  case "3":
+		  case "4":
+		  case "5":
+		    text = "Working Days"; 
+		  	break;
+		  case "6":
+		    text = "Saturday";
+		  	break;
+		  case "7":
+		    text = "Sunday";
+		    break;
+		  default:
+		    text = "Write 1 to 7";
+FIM DIA DA SEMANA*/
+
+		    case "1":
+		        text = "Janeiro";
+		        break;
+		    case "2":
+		        text = "Fevereiro";
+		        break;
+		    case "3":
+		        text = "Março";
+		        break;
+		    case "4":
+		        text = "Abril";
+		        break;
+		    case "5":
+		        text = "Maio";
+		        break;
+		    case "6":
+		        text = "Junho";
+		        break;
+		    case "7":
+		        text = "Julho";
+		        break;
+		    case "8":
+		        text = "Agosto";
+		        break;
+		    case "9":
+		        text = "Setembro";
+		        break;
+		    case "10":
+		        text = "Outubro";
+		        break;
+		    case "11":
+		        text = "Novembro";
+		        break;
+		    case "12":
+		        text = "Dezembro";
+		        break;
+		    default:
+		        text = "Mês inexistente";
+		} 
+		document.getElementById("demo").innerHTML = text;
+	}
+	</script>
+
+	<!--Mostra a estação confome nome do mês digitado-->
+	<script language="javascript">	
+	function validateForm() {
+		var mes = document.myform.fmeses.value;
+
+    	switch (mes) {
+	    case "janeiro":
+	    case "fevereiro":
+	    case "março":
+	        alert("Verão!");
+	        break;
+	    case "abril":
+	    case "maio":
+	    case "junho":
+	        alert("Outono!");
+	        break;
+	    case "julho":
+	    case "agosto":
+	    case "setembro":
+	        alert("Inverno!");
+	        break;
+	    case "outubro":
+	    case "novembro":
+	    case "dezembro":
+	        alert("Primavera!");
+	    break;
+	  	default: 
+	      	alert("Escreva um mês");
+		} 
+	}
+	</script>
+	</section><br/><br/>
+
+	<section>
+	<b>For Loop</b><br/>
+	<div class="foraLoop">Pega uma lista e acrescenta a palava "curso" antes e "avançado" depois</div><br/>
+	<div class="meuloop">HTML</div>
+    <div class="meuloop">CSS</div>
+    <div class="meuloop">JavaScript</div>
+    <div class="foraLoop">PHP</div>
+
+    <script language="javascript">
+    //Pega uma lista e acrescenta textos antes e depois do texto que já existia na lista
+		var mloop = document.getElementsByClassName("meuloop");
+
+		for(i = 0; i < mloop.length; i++){//length, representa o comprimento de uma string
+			var texto = mloop[i].innerHTML;
+			mloop[i].innerHTML = "Curso " + texto + " avançado"; 
+		}
+	</script>
+    </section><br/><br/>
+
+	<section>
+	<b>While Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="form">
+    	<input type="number" name="repeate" required /> 
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreap()"> 
+ 	</form>
+ 	<div id="repeticao"></div>
+
+	<script language="javascript">
+	//faz o loop dizendo, enquanto tiver no loop faz ação X
+	function validateFormreap(){
+		var repeateN = document.form.repeate.value;
+		var mostrarepeate = "";		
+		var i=1;
+		while (i<=repeateN) {
+			mostrarepeate += "<br/>o número é " + i; // "+=" utilizado para concatenar strings, cria tag.
+		   i++;
+		}
+		document.getElementById("repeticao").innerHTML = mostrarepeate;
+	}		
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Do... while Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="form2">
+    	<input type="number" name="repeate2" required /> 
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreap2()"> 
+ 	</form>
+ 	<div id="repeticao2"></div>
+
+	<script language="javascript">
+	//faça uma ação enquanto o loop estiver em ação
+	function validateFormreap2(){
+		var repeateN2 = document.form2.repeate2.value;
+		var mostrarepeate2 = "";		
+		var i=1;
+		do {
+			mostrarepeate2 += "<br/>Número: " + i; //"+="" utilizado para concatenar strings, cria tag.
+		   i++;
+		}
+		while (i<=repeateN2);
+		document.getElementById("repeticao2").innerHTML = mostrarepeate2;
+	}
+		
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Break - Loop</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="formA">
+    contar até: <input type="number" name="repeateA" required /> <br/>
+    Para no número: <input type="number" name="stop" required /> <br/>
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreapA()"> 
+ 	</form>
+ 	<div id="repeticaoA"></div>
+
+	<script language="javascript">
+	//Faz um loop até o numero que foi setado parar o loop
+	function validateFormreapA(){
+		var repeateNA = document.formA.repeateA.value;
+		var stopAcao = document.formA.stop.value;
+		var mostrarepeateA = "";		
+
+		for (i=1; i<=repeateNA; i++){
+			if(i>stopAcao){
+				break;
+			}
+			mostrarepeateA += "<br/>Número: " + i; //+= utilizado para concatenar strings.
+		}		
+		document.getElementById("repeticaoA").innerHTML = mostrarepeateA;
+	}		
+	</script>
+    </section><br/><br/>
+
+    <section>
+	<b>Continue - Loop (com criação de tag "b" para o texto ficar dentro dela)</b><br/>
+    Escreva a quantidade de números a se repetir:
+    <form name="formB" id="continueLoop">
+    contar até: <input type="number" name="repeateB" required /> <br/>
+    não exibir o número: <input type="number" name="escondeB" required /> <br/>
+ 		<input type="button" name="submit" value="Repetir" onclick="validateFormreapB()"> 
+ 	</form>
+
+	<script language="javascript">
+	//Faz o loop e esconde o numero que foi setado
+	function validateFormreapB(){
+		var repeateNB = document.formB.repeateB.value;
+		var escondeNB = document.formB.escondeB.value;
+		var mostrarepeateB = "";		
+
+		for (i=1; i<=repeateNB; i++){
+			if(i==escondeNB){
+				continue;
+			}
+			mostrarepeateB += "<br/>Número: " + i; //"+="" utilizado para concatenar strings, cria tag.
+		}
+		tagNova.innerHTML = mostrarepeateB;
+	};
+		var tagNova = document.createElement("b");
+		document.querySelector("#continueLoop").appendChild(tagNova);	
+	</script>
+    </section><br/><br/>
+
+  </body>
+</html>
