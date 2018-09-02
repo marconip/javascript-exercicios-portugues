@@ -1,2 +1,2 @@
-# js-solearn-tutorial
+# js-sololearn-tutorial
 javascript tutorial
