@@ -4,39 +4,22 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style type="text/css">
-        section {
-            border: 1px solid #999;
-            padding: 20px
-        }
-        b,
-        i {
-            color: red;
-        }   
-        label {
-            cursor: pointer;
-        }
-    </style>
-    <title>sololearn JS tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <title>JS tutorial</title>
 </head>
 
-<body style="background: #f1f1f1">
-    <h1>Core Objects
-        <br/> from www.sololearn.com/Play/JavaScript</h1>
+<body>
+    <h1>Core Objects</h1>
 
-    <!--AULA ABAIXO-->
     <section id="escolhap">
         <b>Accessing an Array - Busca todas as tags "p" e escreve a que foi escolhida com array 1 (exibe em 3seg)</b>
         <br/>
-
         <p>Marconi</p>
         <p>Amarante</p>
         <p>Pacheco</p>
-
         <strong id="demo"></strong>
 
         <script language="javascript">
-            //busca todas as tags e escreve a escolhida com Object Array escolhido, com time de 3sec
             function thetime() {
                 var allname = document.querySelectorAll("#escolhap p");
                 document.getElementById("demo").innerHTML = "Seu nome do meio é: " + allname[1].innerHTML;
@@ -44,9 +27,6 @@
             setInterval(thetime, 3000);
         </script>
     </section>
-    <br/>
-    <br/>
-
 
     <section>
         <b>Accessing an Array - (com if else) Busca todas as listas de "radio button" e escreve um resultado</b>
@@ -63,11 +43,9 @@
                 <input type="radio" name="gender" value="amarante" class="meuscheckbox"> Amarante</label>
             <br/>
             <br/>
-
             <input type="button" name="submit" value="Resultado" onclick="verResultado()">
         </form>
         <br/>
-
         <strong id="demo2"></strong>
 
         <script language="javascript">
@@ -85,9 +63,6 @@
             }
         </script>
     </section>
-    <br/>
-    <br/>
-
 
     <section>
         <b>The Math Object</b>
@@ -107,16 +82,15 @@
             }
         </script>
     </section>
-    <br/>
-    <br/>
-
     <section>
-        <b>setInterval + The Date Object 
-        <br/> setInterval = Chama uma função com o intervalo configurado
-        <br/>The Date Object = exibe o tempo/data</b>
+        <b>setInterval + The Date Object
+            <br/> setInterval = Chama uma função com o intervalo configurado
+            <br/>The Date Object = exibe o tempo/data</b>
 
-        <br/><br/> Após o click,     o tempo de 3 segundos irá contar e no final, mostrará a hora e data!
-        <br/> setInterval outro exemplo esta no primeiro "Accessing an Array", o tempo é setado para exibir sem ter comando de ação.  
+        <br/>
+        <br/> Após o click, o tempo de 3 segundos irá contar e no final, mostrará a hora e data!
+        <br/> setInterval outro exemplo esta no primeiro "Accessing an Array", o tempo é setado para exibir sem ter comando de
+        ação.
         <form>
             <input type="button" name="submit" value="Mostrar data" onclick="printTime()">
         </form>
@@ -138,9 +112,5 @@
                 }, 3000);
             }
         </script>
-    </section>
-    <br/>
-    <br/>
-</body>
-
+    </section></body>
 </html>

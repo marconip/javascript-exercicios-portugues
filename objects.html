@@ -1,116 +1,119 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style type="text/css">section{border:1px solid #ccc; padding:20px}b,i{color:red;}</style>
-    <title>sololearn JS tutorial</title>
-  </head>
-  <body>
-    <h1>Objects <br/>
-    from www.sololearn.com/Play/JavaScript</h1>
-    
-    <!--AULA ABAIXO-->
-    <section>
-	<b>Objects - Uma variavel com subcategorias</b><br/>
-	Preencha os campos abaixo:
-	<form name="form01">
-        <input type="text" name="fname" required="" placeholder="nome" value="marconi" /><br/>
-        <input type="text" name="lname" required="" placeholder="sobrenome" value="pacheco" /><br/>
-        <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" value="36" /><br/>
-        <input type="text" name="pai" required="" placeholder="nome pai" value="francisco" /><br/>
-        <input type="text" name="mae" required="" placeholder="nome mae" value="angela" /><br/>
-        <input type="text" name="gostmais" required="" placeholder="O que você gosta mais" value="tudo" /><br/>
-        <input type="text" name="gostmenos" required="" placeholder="O que você gosta menos" value="nada" />
+    <link rel="stylesheet" href="style.css">
+    <title>JS tutorial</title>
+</head>
 
- 		<input type="button" name="submit" value="Mostrar" onclick="objects()">     		
-    </form>
-    <p id="demo"></p>
-
-	<script language="javascript">
-	//escreve os objetos com e sem subcategorias
-    function objects() {
-        var nomex      = document.form01.fname.value;
-        var sobrenomex = document.form01.lname.value;
-        var idadex     = document.form01.age.value;
-        var paix       = document.form01.pai.value;
-        var maex       = document.form01.mae.value;
-        var gostaxx    = document.form01.gostmais.value;
-        var gostax     = document.form01.gostmenos.value;
-        var person = {
-            firstName : nomex,
-            lastName  : sobrenomex,
-            age       : idadex,
-            subcategoria: {       //criando subcategorias, começando a escrever a variavel de novo dentro da variavel
-                nomepai : paix,
-                nomemae : maex    
-            },
-            adicionais: gostaxx, //continuando a escrever a variavel de novo
-            adicionaldois: gostax,
-        };
-        document.getElementById("demo").innerHTML = person.firstName + " " + person.lastName + " " + person.age + " anos. " + 
-        "<br/>Pais: " + person.subcategoria.nomepai + " e " + person.subcategoria.nomemae + 
-        "<br/> Gosto mais de: " + person.adicionais + " e menos de: " + person.adicionaldois ;
-    }
-	</script>
-    </section><br/><br/>
+<body>
+    <h1>Objects</h1>
 
     <section>
-        <b>Objects - Calcula dois parametros da o resultado</b><br/>
-        Preencha abaixo para mostrar o ano em que você nasceu.
+        <b>Objects - Uma variavel com subcategorias</b>
+        <br/> Preencha os campos abaixo:
+        <form name="form01">
+            <input type="text" name="fname" required="" placeholder="nome" value="marconi" />
+            <br/>
+            <input type="text" name="lname" required="" placeholder="sobrenome" value="pacheco" />
+            <br/>
+            <input type="number" name="age" required="" placeholder="idade" pattern="[0-9]*" inputmode="numeric" value="36" />
+            <br/>
+            <input type="text" name="pai" required="" placeholder="nome pai" value="francisco" />
+            <br/>
+            <input type="text" name="mae" required="" placeholder="nome mae" value="angela" />
+            <br/>
+            <input type="text" name="gostmais" required="" placeholder="O que você gosta mais" value="tudo" />
+            <br/>
+            <input type="text" name="gostmenos" required="" placeholder="O que você gosta menos" value="nada" />
+
+            <input type="button" name="submit" value="Mostrar" onclick="objects()">
+        </form>
+        <p id="demo"></p>
+
+        <script language="javascript">
+            function objects() {
+                var nomex = document.form01.fname.value;
+                var sobrenomex = document.form01.lname.value;
+                var idadex = document.form01.age.value;
+                var paix = document.form01.pai.value;
+                var maex = document.form01.mae.value;
+                var gostaxx = document.form01.gostmais.value;
+                var gostax = document.form01.gostmenos.value;
+                var person = {
+                    firstName: nomex,
+                    lastName: sobrenomex,
+                    age: idadex,
+                    subcategoria: {       //criando subcategorias, começando a escrever a variavel de novo dentro da variavel
+                        nomepai: paix,
+                        nomemae: maex
+                    },
+                    adicionais: gostaxx, //continuando a escrever a variavel de novo
+                    adicionaldois: gostax,
+                };
+                document.getElementById("demo").innerHTML = person.firstName + " " + person.lastName + " " + person.age + " anos. " +
+                    "<br/>Pais: " + person.subcategoria.nomepai + " e " + person.subcategoria.nomemae +
+                    "<br/> Gosto mais de: " + person.adicionais + " e menos de: " + person.adicionaldois;
+            }
+        </script>
+    </section>
+
+    <section>
+        <b>Objects - Calcula dois parametros da o resultado</b>
+        <br/> Preencha abaixo para mostrar o ano em que você nasceu.
         <form name="form02">
             <input type="text" name="fname2" id="fname2" required="" placeholder="seu nome" />
             <input type="number" name="idade2" id="idade2" required="" placeholder="sua idade" pattern="[0-9]*" inputmode="numeric" />
             <input type="number" name="ano2" id="ano2" required="" placeholder="Ano Atual" pattern="[0-9]*" inputmode="numeric" />
-            <input type="button" name="submit" value="Ver ano nascimento" onclick="xobject()">     		
+            <input type="button" name="submit" value="Ver ano nascimento" onclick="xobject()">
         </form>
         <p id="demo2"></p>
-    
+
         <script language="javascript">
-        //vai usar os objetos e calcular
-        function xobject() {
-            var meunome    = document.form02.fname2.value;
-            var minhaidade = document.form02.idade2.value;
-            var anoatual   = document.form02.ano2.value;            
-            var personAno  = {
-                oNome : meunome,
-                aIdade: minhaidade,
-                oAno  : anoatual                
-            };
-            var anoNascimento = personAno.oAno - personAno.aIdade;
-            document.getElementById("demo2").innerHTML = personAno.oNome + "," + " você nasceu em " + anoNascimento;
-        }
+            function xobject() {
+                var meunome = document.form02.fname2.value;
+                var minhaidade = document.form02.idade2.value;
+                var anoatual = document.form02.ano2.value;
+                var personAno = {
+                    oNome: meunome,
+                    aIdade: minhaidade,
+                    oAno: anoatual
+                };
+                var anoNascimento = personAno.oAno - personAno.aIdade;
+                document.getElementById("demo2").innerHTML = personAno.oNome + "," + " você nasceu em " + anoNascimento;
+            }
         </script>
-        </section><br/><br/>
+    </section>
 
 
-        <section>
-        <b>Objects - Adding Methods (é só uma maneira de escrever diferente o JS)</b><br/>
-        Preencha os campos abaixo:
+    <section>
+        <b>Objects - Adding Methods (é só uma maneira de escrever diferente o JS)</b>
+        <br/> Preencha os campos abaixo:
         <form name="form03">
-            <input type="text" name="fname3" required="" placeholder="nome"  />
+            <input type="text" name="fname3" required="" placeholder="nome" />
             <input type="text" name="lname3" required="" placeholder="sobrenome" />
-    
-                <input type="button" name="submit" value="Mostrar" onclick="xmethod()">     		
+
+            <input type="button" name="submit" value="Mostrar" onclick="xmethod()">
         </form>
         <p id="demo3"></p>
-    
+
         <script language="javascript">
-        //Methods é apenas uma maneira de escrever diferente
-        function xmethod() {
-            var nomex   = document.form03.fname3.value;
-            var sobrenx = document.form03.lname3.value;
-            var personlast = {
-                firstName : nomex,
-                lastName  : sobrenx,
-                fullname: function() {
-                    return "nome completo é: " + this.firstName + " " + this.lastName;
-                }
-            };
-            document.getElementById("demo3").innerHTML = personlast.fullname();
-        }
+            function xmethod() {
+                var nomex = document.form03.fname3.value;
+                var sobrenx = document.form03.lname3.value;
+                var personlast = {
+                    firstName: nomex,
+                    lastName: sobrenx,
+                    fullname: function () {
+                        return "nome completo é: " + this.firstName + " " + this.lastName;
+                    }
+                };
+                document.getElementById("demo3").innerHTML = personlast.fullname();
+            }
         </script>
-        </section><br/><br/>
-    
-  </body>
+    </section>
+
+</body>
 </html>

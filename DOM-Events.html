@@ -4,22 +4,8 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style type="text/css">
-        section {
-            border: 1px solid #999;
-            padding: 20px;
-            margin-bottom: 30px;
-        }
-
-        b {
-            color: darkred;
-        }
-
-        label {
-            cursor: pointer;
-        }
-    </style>
-    <title>sololearn JS tutorial</title>
+    <link rel="stylesheet" href="style.css">
+    <title>JS tutorial</title>
 </head>
 
 <body style="background: #f1f1f1">
@@ -120,7 +106,9 @@
         <br/>
         <br/>
         <div id="demo2">
-            <p id="p1"><b>Esse vai ser removido ao click</b></p>
+            <p id="p1">
+                <b>Esse vai ser removido ao click</b>
+            </p>
             <p id="p2">This is another paragraph.</p>
         </div>
         <input type="button" name="submit" value="Remover" onclick="removeEl()">
@@ -143,14 +131,16 @@
         <br/>
         <div id="demo3">
             <p class="paragr">This is another paragraph.</p>
-            <p class="paragr"><b>Esse vai ser substituido ao click</b></p>
+            <p class="paragr">
+                <b>Esse vai ser substituido ao click</b>
+            </p>
             <p class="paragr">This is another paragraph again.</p>
         </div>
         <input type="button" name="submit" value="substituir" onclick="replacing()">
 
         <script language="javascript">
             //ao click substituirá um filho que for referenciado
-            function replacing() {                
+            function replacing() {
                 var p3 = document.createElement("b");
                 var nodex = document.createTextNode(" Esse é o novo conteúdo");
                 p3.appendChild(nodex);
@@ -163,4 +153,5 @@
         </script>
     </section>
 </body>
+
 </html>

@@ -1,131 +1,149 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
+
+<head>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <style type="text/css">section{border:1px solid #ccc; padding:20px} b,i{color:red;} i#veja > b::first-letter{color: #fff;}</style>
-    <title>sololearn JS tutorial</title>
-  </head>
-  <body>
-    <h1>Functions</h1><br/>
+    <link rel="stylesheet" href="style.css">
+    <title>JS tutorial</title>
+</head>
+
+<body>
+    <h1>Functions</h1>
+    <br/>
 
     <section>
-        <b>Função simples</b><br/><br/>
+        <b>Função simples</b>
+        <br/>
+        <br/>
         <input type="button" name="submit" value="Click para chamar a função de alert" onclick="alertaX()">
 
         <script language="javascript">
-        //Simples função - é chamada pelo mesmo nome da função
-        function alertaX(){
-            alert("Função simples deu certo!");
-        }		
+            function alertaX() {
+                alert("Função simples deu certo!");
+            }		
         </script>
-    </section><br/><br/>
+    </section>
 
     <section>
-        <b>Usando parametros, soma de dois parametros: programação + input</b><br/><br/>
+        <b>Usando parametros, soma de dois parametros: programação + input</b>
+        <br/>
+        <br/>
         <form name="formA">
-            Escreva seu nome: <input type="text" name="funcaoA" id="funcaoA" required /> <br/><br/>
-            Alerta <input type="button" name="submit" value="Olá + seu nome" onclick="sayHello()">            
-        </form><br/>
+            Escreva seu nome:
+            <input type="text" name="funcaoA" id="funcaoA" required />
+            <br/>
+            <br/> Alerta
+            <input type="button" name="submit" value="Olá + seu nome" onclick="sayHello()">
+        </form>
+        <br/>
 
         <script language="javascript">
-        //Pega nome do input e soma com palavra setada
-        function sayHello() {
-            var meuNome = document.getElementById("funcaoA").value;
-            alert("Olá, " + meuNome);
-        }    
+            function sayHello() {
+                var meuNome = document.getElementById("funcaoA").value;
+                alert("Olá, " + meuNome);
+            }    
         </script>
-    </section><br/><br/>
+    </section>
 
     <section>
-        <b>Multiplos parametros, soma de dois ou mais parametros: programação + os inputs</b><br/><br/>
+        <b>Multiplos parametros, soma de dois ou mais parametros: programação + os inputs</b>
+        <br/>
+        <br/>
         <form name="formB">
             <input type="text" name="mnome" placeholder="Escreva seu nome" required />
-            <input type="text" name="midade" placeholder="escreva sua idade" required /> <br/><br/>
-            <input type="button" name="submit" value="Ver nome + idade" onclick="multiplos()">            
-        </form><br/>
-        Resultado: <i id="escreve"></i>
+            <input type="text" name="midade" placeholder="escreva sua idade" required />
+            <br/>
+            <br/>
+            <input type="button" name="submit" value="Ver nome + idade" onclick="multiplos()">
+        </form>
+        <br/> Resultado:
+        <i id="escreve"></i>
 
         <script language="javascript">
-        //Pega todos os nomes dos inputs e soma com as palavras setadas
-        function multiplos() {
-            var mNome = document.formB.mnome.value;
-            var mIdade = document.formB.midade.value;
-            var escrevendo;
-            escrevendo = "Meu nome é: " + '<b>' + mNome + '</b>' + " e tenho " + '<b>' + mIdade + '</b>' +" anos";
-            
+            function multiplos() {
+                var mNome = document.formB.mnome.value;
+                var mIdade = document.formB.midade.value;
+                var escrevendo;
+                escrevendo = "Meu nome é: " + '<b>' + mNome + '</b>' + " e tenho " + '<b>' + mIdade + '</b>' + " anos";
 
-            document.getElementById("escreve").innerHTML = escrevendo;
-        }
+
+                document.getElementById("escreve").innerHTML = escrevendo;
+            }
         </script>
-    </section><br/><br/>
+    </section>
 
     <section>
-        <b>The return Statement - Calcula dois parametros da o resultado</b><br/><br/>
+        <b>The return Statement - Calcula dois parametros da o resultado</b>
+        <br/>
+        <br/>
         <form name="formC">
             <input type="number" name="born" placeholder="ano que estamos" required />
-            <input type="number" name="yearnow" placeholder="ano que nasceu" required /> <br/><br/>
-            <input type="button" name="submit" value="Ver minha idade" onclick="showAnos()">            
-        </form><br/>
-        Resultado: <i id="veja"></i>
+            <input type="number" name="yearnow" placeholder="ano que nasceu" required />
+            <br/>
+            <br/>
+            <input type="button" name="submit" value="Ver minha idade" onclick="showAnos()">
+        </form>
+        <br/> Resultado:
+        <i id="veja"></i>
 
         <script language="javascript">
-        //Pega valores no inputs e faz um calculo desejado!
-        function showAnos() {
-            var nascimento = document.formC.born.value;
-            var anoAtual = document.formC.yearnow.value;
-            //var minhaIdade = parseInt(nascimento) + parseInt(anoAtual); PARA FAZER SOMA E NÃO CONCATENAR
-            var minhaIdade = nascimento-anoAtual;
-            var escreveAno;
-            escreveAno = "Você tem: " + '<b>' + minhaIdade + '</b>' + " anos";
+            function showAnos() {
+                var nascimento = document.formC.born.value;
+                var anoAtual = document.formC.yearnow.value;
+                //var minhaIdade = parseInt(nascimento) + parseInt(anoAtual); PARA FAZER SOMA E NÃO CONCATENAR
+                var minhaIdade = nascimento - anoAtual;
+                var escreveAno;
+                escreveAno = "Você tem: " + '<b>' + minhaIdade + '</b>' + " anos";
 
-            document.getElementById("veja").innerHTML = escreveAno;
-        }        
+                document.getElementById("veja").innerHTML = escreveAno;
+            }        
         </script>
-    </section><br/><br/>
+    </section>
 
     <section>
-        <b>Prompt Box - Habilita uma caixa (tipo alerta) para escrever algo</b><br/><br/>
+        <b>Prompt Box - Habilita uma caixa (tipo alerta) para escrever algo</b>
+        <br/>
+        <br/>
         <form name="formD">
-            <input type="button" name="submit" value="Mostrar Prompt Box" onclick="meuPrompt()">          
-        </form><br/>
-        Seu nome é: <i id="mostraPrompt"></i>
+            <input type="button" name="submit" value="Mostrar Prompt Box" onclick="meuPrompt()">
+        </form>
+        <br/> Seu nome é:
+        <i id="mostraPrompt"></i>
 
         <script language="javascript">
-        //Abre caixa de dialogo para escrever algo
-        function meuPrompt() {
-            info = prompt("Por favor \nEscreva seu nome");            
-            document.getElementById("mostraPrompt").innerHTML = info;
-        }
-        </script>        
-    </section><br/><br/>
+            function meuPrompt() {
+                info = prompt("Por favor \nEscreva seu nome");
+                document.getElementById("mostraPrompt").innerHTML = info;
+            }
+        </script>
+    </section>
 
     <section>
-        <b>Confirm Box - Caixa de diálogo (tipo alerta) para respostas de sim ou não (OK ou Cancelar)</b><br/><br/>
+        <b>Confirm Box - Caixa de diálogo (tipo alerta) para respostas de sim ou não (OK ou Cancelar)</b>
+        <br/>
+        <br/>
         <form name="formE">
-            <input type="button" name="submit" value="Mostrar diálogo" onclick="meuConfirm()">          
-        </form><br/>
-        Resposta do Confirme Box: <i id="mostraConfirm"></i>
+            <input type="button" name="submit" value="Mostrar diálogo" onclick="meuConfirm()">
+        </form>
+        <br/> Resposta do Confirme Box:
+        <i id="mostraConfirm"></i>
 
         <script language="javascript">
-        //Abre caixa de dialogo
-        function meuConfirm() {
-            var result = confirm("Você gostou dessa aula?");
-            if (result == true) {
-                alert("Que bom, obrigado!");
-            }
-            else {
-                alert("Poxa, de qualquer forma, obrigado!");
-            }
-            resultX = "<b>" + result + "</b>" + " (True = Gostou e False = Não gostou)";
+            function meuConfirm() {
+                var result = confirm("Você gostou dessa aula?");
+                if (result == true) {
+                    alert("Que bom, obrigado!");
+                }
+                else {
+                    alert("Poxa, de qualquer forma, obrigado!");
+                }
+                resultX = "<b>" + result + "</b>" + " (True = Gostou e False = Não gostou)";
 
-            document.getElementById("mostraConfirm").innerHTML = resultX;
-        }
+                document.getElementById("mostraConfirm").innerHTML = resultX;
+            }
         </script>
-    </section><br/><br/>
-
-
-
-  </body>
+    </section>
+</body>
 </html>

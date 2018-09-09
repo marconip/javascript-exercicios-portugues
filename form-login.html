@@ -1,55 +1,63 @@
 <!doctype html>
 <html lang="pt-br">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-    <title>sololearn JS tutorial</title>
-  </head>
-  <body>
-    <h1>Login Page</h1>
-      <form name="login">
-          Login <input type="text" name="usuario"/><br/>
-          Senha <input type="password" name="senha"/><br/><br/>
-          <input type="button" onclick="check(form)" value="Login"/> <br/><br/>
-          <input type="button" onclick="myFunction()" value="Mostrar Senha"/>
-      </form>
-    <p>Esse form login é feito para acertar o login e senha exatamente como ele é e direcionar a página!</p>
-    <section id="mostrasenha">
-      <p>Senha: jftec<br/>
-        Login: senha
-      </p>
-    </section>
+<head>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="style.css">
+  <title>JS tutorial</title>
+</head>
 
-    <!--CHAMADAS JQUERY E MEU JS-->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/editar.js"></script>
-    <!--AULA ABAIXO-->
-    <script language="javascript">
-      function check(form) { 
-      
-          if(form.usuario.value == "jftec" && form.senha.value == "senha") {
-            window.location = "http://jftecnologia.com/contatos/";  
-          }
-          else if(form.usuario.value == "" && form.senha.value == "") {
-            alert("Preecha os campos Login e Senha") 
-          }
-          else {
-              alert("Erro de Login ou senha")
-          }
-      };
+<body>
+  <h1>Login Page</h1>
+  <form name="login">
+    Login
+    <input type="text" name="usuario" />
+    <br/> Senha
+    <input type="password" name="senha" />
+    <br/>
+    <br/>
+    <input type="button" onclick="check(form)" value="Login" />
+    <br/>
+    <br/>
+    <input type="button" onclick="myFunction()" value="Mostrar Senha" />
+  </form>
+  <p>Esse form login é feito para acertar o login e senha exatamente como ele é e direcionar a página!</p>
+  <section id="mostrasenha">
+    <p>Senha: jftec
+      <br/> Login: senha
+    </p>
+  </section>
 
-      var msenha = document.getElementById("mostrasenha");
-      msenha.style.display = "none";
-      function myFunction() {
-          if (msenha.style.display === "block") {
-              msenha.style.display = "none";
-          } else {
-              msenha.style.display = "block";
-          }
+  <!--CHAMADAS JQUERY E MEU JS-->
+  <script src="js/jquery-3.3.1.min.js"></script>
+  <script src="js/editar.js"></script>
+  <!--AULA ABAIXO-->
+  <script language="javascript">
+    function check(form) {
+
+      if (form.usuario.value == "jftec" && form.senha.value == "senha") {
+        window.location = "http://jftecnologia.com/contatos/";
       }
-    </script>
+      else if (form.usuario.value == "" && form.senha.value == "") {
+        alert("Preecha os campos Login e Senha")
+      }
+      else {
+        alert("Erro de Login ou senha")
+      }
+    };
 
-  </body>
+    var msenha = document.getElementById("mostrasenha");
+    msenha.style.display = "none";
+    function myFunction() {
+      if (msenha.style.display === "block") {
+        msenha.style.display = "none";
+      } else {
+        msenha.style.display = "block";
+      }
+    }
+  </script>
+
+</body>
 </html>
