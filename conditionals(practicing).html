@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel='stylesheet' href='css/style.css' type='text/css' />
+	<title>JS tutorial practicing</title>
+</head>
+
+<body>
+	<h1>Conditionals</h1>
+
+	<section>
+		<b>Conditionals - if Statement</b>
+		<br/> Somente se for maior de idade irá mostra alerta!
+		<form>
+			<input type="text" name="idade" id="minhaIdade" required="" placeholder="Inseira um número" />
+			<input type="button" name="submit" value="Alerta" onclick="validateAge()">
+		</form>
+
+
+		<p>JS: escreva uma condição de exibir um alerta somente com if statement se for maior ou igual a 18.</p>
+		<script language="javascript">
+			function validateAge() {
+				var age = document.getElementById("minhaIdade").value;
+				if (age >= 18) {
+					alert("Parabens! \nVocê tem 18 anos ou mais");
+				}
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Conditionals - if else Statement</b>
+		<br/> Insira um número para saber quem é maior entre A ou B:
+		<form>
+			A
+			<input type="number" name="a" id="a" required />
+			<br/> B
+			<input type="number" name="b" id="b" required />
+			<br/>
+			<br/>
+			<input type="button" name="submit" value="Resultado" onclick="validateFormAB()">
+		</form>
+		<br/> Valor:
+		<i id="valorA"></i>
+
+		<p>JS: escreva uma condição de exibir resposta com if e else statement somando os 2 valores do input.</p>
+		<script language="javascript">	
+			function validateFormAB() {
+				var a = document.getElementById("a").value;
+				var b = document.getElementById("b").value;
+				if (a > b) {
+					write = "A é maior que B";
+				} else {
+					write = "B é maior que A";
+				};
+				document.getElementById("valorA").innerHTML = write;
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Conditionals - if else if else Statement</b>
+		<br/> Selecione um curso:
+		<form name="meuform">
+			<select name="cursos">
+				<option value=""></option>
+				<option value="html">HTML</option>
+				<option value="css">CSS</option>
+			</select>
+			<br/>
+			<br/>
+			<input type="button" name="submit" value="Alerta o Curso" onclick="validateForm00()">
+		</form>
+
+		<p>JS: escreva uma condição de exibir alerta com if, else if, else statement, para quando tiver selecionado e não selecionado,
+			exibindo a seleção.</p>
+		<script language="javascript">
+			function validateForm00() {
+				var myselect = document.meuform.cursos.value;
+				if (myselect == "html") {
+					alert("Você escolheu HTML");
+				} else if (myselect == "css") {
+					alert("Você escolheu CSS");
+				} else {
+					alert("Escolha um curso, por favor!");
+				}
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Conditionals - Switch</b>
+		<br/>
+		<form name="minhaform">
+			Digita um número para VER O MÊS:
+			<input type="number" name="omes" id="myInput" required max="12" />
+			<input type="button" name="submit" value="Mostrar Mês" onclick="validateFormulario()">
+			<br/> Mês escolhido acima foi:
+			<b id="demo"></b>
+		</form>
+
+		<p>JS: escreva uma mês para cada número como resposta é uma resposta para número errado ou campo vazio.</p>		
+		<script language="javascript">
+			function validateFormulario() {
+				var mes = document.minhaform.omes.value;
+				switch (mes) {
+					case "1":
+						answer = "january";
+						break;
+					case "2":
+						answer = "february";
+						break;
+					case "3":
+						answer = "march";
+						break;
+					case "4":
+						answer = "abril";
+						break;
+					case "5":
+						answer = "may";
+						break;
+					case "6":
+						answer = "june";
+						break;
+					case "7":
+						answer = "july";
+						break;
+					case "8":
+						answer = "august";
+						break;
+					case "9":
+						answer = "september";
+						break;
+					case "10":
+						answer = "octuber";
+						break;
+					case "11":
+						answer = "november";
+						break;
+					case "12":
+						answer = "december";
+						break;
+					default:
+						answer = "campo vazio ou número invalido, escreva entre 1 e 12";
+				}
+				document.getElementById("demo").innerHTML = answer;
+			};
+
+		</script>
+
+		<form name="myform">
+			Escreva um mês para exibir o aleta com a ESTAÇÃO DO ANO:
+			<br/>
+			<input type="text" name="fmeses" id="fmes" required />
+			<input type="button" name="submit" value="Alerta Estação" onclick="validateForm()">
+		</form>
+
+		<p>JS: escreva para cada 3 meses uma estação do ano é uma resposta para número errado ou campo vazio.</p>
+		<script>
+			function validateForm() {
+				var season = document.myform.fmeses.value;
+				switch (season) {
+					case "january":
+					case "february":
+					case "march":
+						alert("Spring");
+						break;
+					case "abril":
+					case "may":
+					case "jun":
+						alert("Summer");
+						break;
+					case "july":
+					case "august":
+					case "september":
+						alert("Fall or Autumn");
+						break;
+					case "octuber":
+					case "november":
+					case "december":
+						alert("Winter");
+						break;
+					default:
+						alert("answer not valid, please write a month");
+				}
+			};
+		</script>
+	</section>
+</body>
+
+</html>
