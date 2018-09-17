@@ -1,13 +1,7 @@
-#javascript
+#javascript #practicing #portugues
 
 Arquivos em portugues para praticar exercicios em javascript em nivel iniciante e intermediario.
 
-<<<<<<< HEAD
-STATUS - RepositÛrio em construÁ„o
+STATUS - Reposit√≥rio em constru√ß√£o
 
-Todos essas atividades s„o baseadas nos topicos do site/aplicativo: https://www.sololearn.com/ (javascript)
-=======
-STATUS - Em constru√ß√£o
-
-Todos essas atividades s√£o baseadas nos topicos do site/aplicativo: https://www.sololearn.com/ (javascript)
->>>>>>> 3736119f9ba5c56a4be4a73a372e1050158e2ab2
+Todos essas atividades s√£o baseadas nos topicos do site/aplicativo Sololearn: https://www.sololearn.com/ (javascript)
