@@ -12,7 +12,7 @@ h3 {
 section {
   border: 1px solid #ccc;
   padding: 20px;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
 }
 
 b,
@@ -23,10 +23,12 @@ i {
 p {
   color: #999;
 }
+
 ul li:hover {
   cursor: pointer;
   background: #f9f9f9;
 }
+
 .mystyle {
   color: blueviolet;
 }
@@ -48,9 +50,49 @@ ul li:hover {
 }
 
 /*DOM events*/
+
 #boxdiv {
   width: 80px;
   height: 80px;
   background: #999;
   border: 4px solid yellowgreen;
+}
+
+/*Event Propagation*/
+
+.div {
+  padding: 40px;
+  background-color: rgba(0, 0, 0, 0.3);
+  text-align: center;
+  cursor: pointer;
+}
+
+.div p {
+  padding: 10px;
+  background: #333;
+  color: #fff;
+}
+
+.div span {
+  padding: 10px;
+  background: #fff;
+  color: #333;
+}
+
+/*Image Slider*/
+#imgslider {
+  display: table;
+}
+#imgslider button {
+  margin-top: 30px;
+  float: left;
+  padding: 15px;
+}
+#imgslider img {
+  float: left;
+  margin: 0 20px;
+}
+#imgslider img, 
+.display-container img {
+  width: 200px;
 }
