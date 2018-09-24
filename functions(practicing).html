@@ -2,16 +2,14 @@
 <html lang="pt-br">
 
 <head>
-    <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="style.css">
-    <title>JS tutorial</title>
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
 </head>
 
 <body>
     <h1>Functions</h1>
-    <br/>
 
     <section>
         <b>Função simples</b>
@@ -21,13 +19,15 @@
 
         <script language="javascript">
             function alertaX() {
-                alert("Função simples deu certo!");
-            }		
+                alert("deu certo!");
+            };	
         </script>
     </section>
 
     <section>
-        <b>Usando parametros, soma de dois parametros: programação + input</b>
+        <b>Usando parametros, soma de dois parametros: programação + input (Pega nome do input e soma com palavra setada no
+            JS)
+        </b>
         <br/>
         <br/>
         <form name="formA">
@@ -41,19 +41,20 @@
 
         <script language="javascript">
             function sayHello() {
-                var meuNome = document.getElementById("funcaoA").value;
-                alert("Olá, " + meuNome);
-            }    
+                var nome = document.formA.funcaoA.value;
+                alert("Olá, " + nome);
+            };
         </script>
     </section>
 
     <section>
-        <b>Multiplos parametros, soma de dois ou mais parametros: programação + os inputs</b>
+        <b>Multiplos parametros, soma de dois ou mais parametros: programação + os inputs (Pega todos os nomes dos inputs e
+            soma com as palavras setadas)</b>
         <br/>
         <br/>
         <form name="formB">
             <input type="text" name="mnome" placeholder="Escreva seu nome" required />
-            <input type="text" name="midade" placeholder="escreva sua idade" required />
+            <input type="number" name="midade" placeholder="escreva sua idade" required />
             <br/>
             <br/>
             <input type="button" name="submit" value="Ver nome + idade" onclick="multiplos()">
@@ -63,24 +64,20 @@
 
         <script language="javascript">
             function multiplos() {
-                var mNome = document.formB.mnome.value;
-                var mIdade = document.formB.midade.value;
-                var escrevendo;
-                escrevendo = "Meu nome é: " + '<b>' + mNome + '</b>' + " e tenho " + '<b>' + mIdade + '</b>' + " anos";
-
-
-                document.getElementById("escreve").innerHTML = escrevendo;
-            }
+                var nome = document.formB.mnome.value;
+                var idade = document.formB.midade.value;
+                document.getElementById("escreve").innerHTML = "Seu nome é " + nome + "<br/>" + "Sua idade é: " + idade;
+            };
         </script>
     </section>
 
     <section>
-        <b>The return Statement - Calcula dois parametros da o resultado</b>
+        <b>The return Statement - Calcula dois parametros da o resultado (Pega valores no inputs e faz um calculo desejado)</b>
         <br/>
         <br/>
         <form name="formC">
-            <input type="number" name="born" placeholder="ano que estamos" required />
-            <input type="number" name="yearnow" placeholder="ano que nasceu" required />
+            <input type="number" name="yearnow" placeholder="ano que estamos" required />
+            <input type="number" name="born" placeholder="ano que nasceu" required />
             <br/>
             <br/>
             <input type="button" name="submit" value="Ver minha idade" onclick="showAnos()">
@@ -89,16 +86,13 @@
         <i id="veja"></i>
 
         <script language="javascript">
-            function showAnos() {
-                var nascimento = document.formC.born.value;
-                var anoAtual = document.formC.yearnow.value;
-                //var minhaIdade = parseInt(nascimento) + parseInt(anoAtual); PARA FAZER SOMA E NÃO CONCATENAR
-                var minhaIdade = nascimento - anoAtual;
-                var escreveAno;
-                escreveAno = "Você tem: " + '<b>' + minhaIdade + '</b>' + " anos";
+            function showAnos() {//*obs no final da página sobre somar
+                var anoatual = document.formC.yearnow.value;
+                var anonascimento = document.formC.born.value;
+                var suaidade = anoatual - anonascimento;
 
-                document.getElementById("veja").innerHTML = escreveAno;
-            }        
+                document.getElementById("veja").innerHTML = suaidade;
+            };
         </script>
     </section>
 
@@ -114,9 +108,9 @@
 
         <script language="javascript">
             function meuPrompt() {
-                info = prompt("Por favor \nEscreva seu nome");
+                var info = prompt("Por favor \nescreva seu nome");
                 document.getElementById("mostraPrompt").innerHTML = info;
-            }
+            };
         </script>
     </section>
 
@@ -132,18 +126,19 @@
 
         <script language="javascript">
             function meuConfirm() {
-                var result = confirm("Você gostou dessa aula?");
-                if (result == true) {
-                    alert("Que bom, obrigado!");
+                var confirmacao = confirm("Gostou das atividades nessa página?");
+                if (confirmacao == true) {
+                    alert("Obrigado e continue praticando");
+                    resposta = "Sim, gostou";
+                } else {
+                    alert("Que pena, mas já foi alguma coisa");
+                    resposta = "Não gostou"
                 }
-                else {
-                    alert("Poxa, de qualquer forma, obrigado!");
-                }
-                resultX = "<b>" + result + "</b>" + " (True = Gostou e False = Não gostou)";
-
-                document.getElementById("mostraConfirm").innerHTML = resultX;
-            }
+                document.getElementById("mostraConfirm").innerHTML = resposta;
+            };
         </script>
     </section>
+    <!-- PARA FAZER SOMA E NÃO CONCATENAR: var minhaIdade = parseInt(nascimento) + parseInt(anoAtual);  -->
 </body>
+
 </html>

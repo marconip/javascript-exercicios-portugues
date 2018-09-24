@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body style="background: #f1f1f1">
+    <h1>Core Objects</h1>
+
+    <section id="escolhap">
+        <b>Accessing an Array
+        <br/> Busca todas as tags "p" e escreve a que foi escolhida com array 1 (exibe em 3seg)</b>
+        <br/>
+        <span>Barry</span>
+        <span>Allen</span>
+        <span>flash</span>
+        <br/>
+        <br/>
+        <strong id="demo">em 3 segundos aparecerá aqui</strong>
+
+        <p>JS: seleciona as tags com nomes e escreve a tag no meio com função "theTime" para um "setInterval"</p>
+        <script language="javascript">
+            function theTime() {
+                var tagsP = document.querySelectorAll("#escolhap span");
+                document.getElementById("demo").innerHTML = "array 1 é: " + tagsP[1].innerHTML;
+            } setInterval(theTime, 3000);
+        </script>
+    </section>
+
+
+    <section>
+        <b>Accessing an Array
+        <br/> (com if else) Busca todas as listas de "radio button" e escreve um resultado</b><br/>
+        
+        Qual o nome do meio de Barry? Resposta, veja no Console do navegador<br/><br/>
+        <form>
+            <label>
+                <input type="radio" name="gender" value="pacheco" class="meuscheckbox"> Flash</label>
+            <br/>
+            <label>
+                <input type="radio" name="gender" value="marconi" class="meuscheckbox"> Barry</label>
+            <br/>
+            <label>
+                <input type="radio" name="gender" value="amarante" class="meuscheckbox"> Allen</label>
+            <br/>
+            <br/>
+            <input type="button" name="submit" value="Resultado" onclick="verResultado()">
+        </form>
+        <br/>
+        <strong id="demo2"></strong>
+
+        <p>JS: Selecione as checkebox e responde a correta atravez da array correspondente e errada para array incorreta, fazer com: if e else.</p>
+        <script language="javascript">
+            function verResultado() {
+                var myarray = document.querySelectorAll(".meuscheckbox");
+                if (myarray[2].checked == true) {
+                    answer = "Parabéns, você acertou";
+                } else {
+                    answer = "Desculpe, mas você errou";
+                }
+                document.getElementById("demo2").innerHTML = answer;
+            };           
+        </script>
+    </section>
+
+    <section>
+        <b>The Math Object</b>
+        <br/> Inserira um número para saber no alerta a Raiz Quadrada, (atraves de comandos "Math").
+        <br/><br/>
+        <form>
+            <input type="text" name="idade" id="meunumero" required="" placeholder="Inseira um número" />
+            <input type="button" name="submit" value="Alerta resposta" onclick="validateForm()">
+        </form>
+
+        <p>JS: escreva o número respondido e a raiz quadrada com "Math.sqrt" para a resposta dada</p>
+        <script language="javascript">
+            function validateForm() {
+                var myinput = document.getElementById("meunumero").value;
+                var answeris = Math.sqrt(myinput);
+                alert("a raiz quadrada de " + myinput + " é " + answeris);
+            }
+        </script>
+    </section>
+
+    <section>
+        <b>setInterval + The Date Object
+            <br/>SetInterval = Chama uma função com o intervalo configurado
+            <br/>The Date Object = exibe o tempo/data</b>
+        <br/>
+        <br/> Após o click, o tempo de 3 segundos irá contar e no final, mostrará a hora e data!
+        <br/> Obs: "setInterval" outro exemplo está no primeiro "Accessing an Array", o tempo é setado para exibir sem ter comando
+        de ação.
+        <form>
+            <input type="button" name="submit" value="Mostrar data" onclick="printTime()">
+        </form>
+        <br/>
+        <strong id="demo3"></strong>
+
+        <p>JS: após o click mostra funções de hora, minutos, segundos, dia, mês e ano. setInterval para 3 segundos</p>
+        <script language="javascript">
+            function printTime() {
+                setInterval(function () {
+                    var printTime = new Date();
+                    var hora = printTime.getHours();
+                    var min = printTime.getMinutes();
+                    var sec = printTime.getSeconds();
+                    var dia = printTime.getDay();
+                    var mes = printTime.getMonth();
+                    var ano = printTime.getFullYear();
+
+                    document.getElementById("demo3").innerHTML =
+                        "Hour: " + hora + ":" + min + ":" + sec + "<br/>"
+                        + "Day: " + dia + "<br/>"
+                        + "Month: " + mes + "<br/>"
+                        + "Year: " + ano + "<br/>";
+                }, 3000);
+            }
+        </script>
+    </section>
+</body>
+
+</html>

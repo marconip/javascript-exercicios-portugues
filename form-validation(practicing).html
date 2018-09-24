@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Form Validation</h1>
+
+    <section>
+        <b>Cria uma simples validação do tipo login. Validar (entra no site sololearn.com), quando os campos tiverem caracteres
+            iguais e alerta se os campos tiverem vazios ou com caracteres diferentes.
+            <br/> A validação é dada com "true" ou "false" usando if, "!=", "&&" e if dentro do if</b>
+        <br/>
+        <br/>
+        <form onsubmit="return validate()" action="https://www.sololearn.com" method="post">
+            Digite qualquer coisa:
+            <br/>
+            <input type="text" name="num1" id="num1" />
+            <br /> Repita:
+            <br />
+            <input type="text" name="num2" id="num2" />
+            <br />
+            <input type="submit" value="Submit" />
+        </form>
+
+        <script>
+            function validate() {
+                var n1 = document.getElementById('num1');
+                var n2 = document.getElementById('num2');
+                if (n1.value != '' && n2.value != '') {
+                    if (n1.value == n2.value) {
+                        return true;
+                    }
+                }
+                alert("O valor deve ser igual e os campos preenchidos");
+                return false;
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Validará usando if e alert se o campo nome for preechido, entrará no site sololearn.com, se não alerta para preencher!</b>
+        <br/>
+        <br/>
+        <form name="myForm" action="https://www.sololearn.com" onsubmit="return validateForm()" method="post">
+            Name:
+            <input type="text" name="fname">
+
+            <input type="submit" value="Submit">
+        </form>
+
+        <script>
+            function validateForm() {
+                var x = document.myForm.fname.value;
+                if (x == "") {
+                    alert("NOME \nDeve ser preenchido");
+                    return false;
+                }
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Validará com if, else, "||" e "isNaN" retorna valor valido OK </b>
+        <br/>
+        <br/> Preencha um número entre 1 e 10:
+        <br/>
+        <input type="number" name="valor" id="numb">
+
+        <button type="button" onclick="myFunction()">Submit</button>
+
+        <i id="demo"></i>
+
+        <script>
+            function myFunction() {
+                var x, text;
+                x = document.getElementById("numb").value;
+
+                if (isNaN(x) || x < 1 || x > 10) { //*isNaN - observação fim da página!
+                    text = "Valor invalido";
+                } else {
+                    text = "Valor OK";
+                }
+                document.getElementById("demo").innerHTML = "Você digitou: " + x + " = " + text;
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Validação com if, else, "isNaN", "?" e ":"</b>
+        <br/>
+        <br/>
+        escreva sua idade para saber se tem idade suficiente a igual 18 anos<br/>
+
+        <input type="number" name="age" id="age"/>
+
+        <button onclick="myFunct()">Try it</button>
+
+        <i id="demo2"></i>
+
+        <script>
+            function myFunct() {
+                var age, voteable;
+                age = Number(document.getElementById("age").value);//*Number() - observação fim da página!
+                if (isNaN(age)) {
+                    voteable = "Input is not a number";
+                } else {
+                    voteable = (age < 18) ? "Muito jovem" : "idade suficiente";
+                }
+                document.getElementById("demo2").innerHTML = "Você digitou: " + age + " = " + voteable;
+            }
+        </script>
+    </section>
+
+    <!-- *Number() function converte um objeto para um número que representa um valor para o objeto. 
+    Se o valor não pode ser convertido legalmente em um número, NaN (A non-numeric) é retornado.
+    isNaN = não é númerico. -->
+</body>
+
+</html>
