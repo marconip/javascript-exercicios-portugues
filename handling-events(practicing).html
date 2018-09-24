@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br">
 
@@ -93,4 +94,101 @@
     </section>
 </body>
 
+=======
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Handling Events - manipulação de eventos</h1>
+
+    <section>
+        <b>Events - Executar um evento ao click</b>
+        <br/> Display de alerta aparecerá ao clicar o botão (criado no html, botão uma função para chamar no JS)
+        <br/>
+        <form>
+            <input type="button" name="submit" value="Mostrar alerta" onclick="show()">
+        </form>
+
+        <script language="javascript">
+            function show() {
+                alert("Olá!");
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Events - Executar um evento quando ao click</b>
+        <br/> Foi escrito uma função "onclick" que pegando o elemento html já existente e clicando nele mostrará a data
+        <br/>
+        <button id="demo">Click Me</button>
+        <br/>
+        <i id="show"></i>
+
+        <script language="javascript">
+            document.getElementById("demo").onclick = function () {
+                document.getElementById("show").innerHTML = Date();
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>onchange - Geralmente usado para fazer mudanças em caixa de textos</b>
+        <br/>Foi escrito uma função "onchange" pega "onchange" já existente no html e clicando nele alterará os textos para maiusculos
+        alterando o "value".
+        <br/>
+        <input type="text" id="name" onchange="change()">
+
+        <script language="javascript">
+            function change() {
+                var mudar = document.getElementById("name");
+                mudar.value = mudar.value.toUpperCase();
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Event Listeners - manipulador de eventos, algumas formas de criar "click".</b>
+        <br/><br/>
+        <b>Exemplo 01</b> cria uma função com click usando o "addEventListener" e após o click remove a função com "removeEventListener"
+        fazendo com que seja clicado uma única vez.
+        <br/>
+        <button id="exemplo1">exemplo 01</button>
+        <br/><br/>
+        <b>Exemplo 02</b> é o mesmo que o ex.01 a diferença é que é criado a função com "onclick = função" só que sem o remove.
+        <br/>
+        <button id="exemplo2">exemplo 02</button>
+        <br/><br/>
+        <b>Exemplo 03</b> cria uma função com mouse hover usando o "addEventListener".
+        <br/>
+        <button id="exemplo3">exemplo 03 não click</button>        
+
+        <script language="javascript">
+            var ex01 = document.getElementById("exemplo1");
+            ex01.addEventListener("click", exemplo1);
+            function exemplo1() {
+                alert("exemplo 01");
+                ex01.removeEventListener("click", exemplo1);
+            };
+            document.getElementById("exemplo2").onclick = function () { exemplo2() };
+            function exemplo2() {
+                alert("exemplo 02");
+            };
+            document.getElementById("exemplo3").addEventListener("mouseover", exemplo3);
+            function exemplo3() {
+                alert("exemplo 03");
+            };
+        </script>
+    </section>
+</body>
+
+>>>>>>> dc5313a3e06780f2d40a75f6fd124c11949e0a77
 </html>

@@ -1,3 +1,4 @@
+<<<<<<< HEAD:functions(practicing).html
 <!doctype html>
 <html lang="pt-br">
 
@@ -141,4 +142,149 @@
     <!-- PARA FAZER SOMA E NÃO CONCATENAR: var minhaIdade = parseInt(nascimento) + parseInt(anoAtual);  -->
 </body>
 
+=======
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Functions</h1>
+
+    <section>
+        <b>Função simples</b>
+        <br/>
+        <br/>
+        <input type="button" name="submit" value="Click para chamar a função de alert" onclick="alertaX()">
+
+        <script language="javascript">
+            function alertaX() {
+                alert("deu certo!");
+            };	
+        </script>
+    </section>
+
+    <section>
+        <b>Usando parametros, soma de dois parametros: programação + input (Pega nome do input e soma com palavra setada no
+            JS)
+        </b>
+        <br/>
+        <br/>
+        <form name="formA">
+            Escreva seu nome:
+            <input type="text" name="funcaoA" id="funcaoA" required />
+            <br/>
+            <br/> Alerta
+            <input type="button" name="submit" value="Olá + seu nome" onclick="sayHello()">
+        </form>
+        <br/>
+
+        <script language="javascript">
+            function sayHello() {
+                var nome = document.formA.funcaoA.value;
+                alert("Olá, " + nome);
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Multiplos parametros, soma de dois ou mais parametros: programação + os inputs (Pega todos os nomes dos inputs e
+            soma com as palavras setadas)</b>
+        <br/>
+        <br/>
+        <form name="formB">
+            <input type="text" name="mnome" placeholder="Escreva seu nome" required />
+            <input type="number" name="midade" placeholder="escreva sua idade" required />
+            <br/>
+            <br/>
+            <input type="button" name="submit" value="Ver nome + idade" onclick="multiplos()">
+        </form>
+        <br/> Resultado:
+        <i id="escreve"></i>
+
+        <script language="javascript">
+            function multiplos() {
+                var nome = document.formB.mnome.value;
+                var idade = document.formB.midade.value;
+                document.getElementById("escreve").innerHTML = "Seu nome é " + nome + "<br/>" + "Sua idade é: " + idade;
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>The return Statement - Calcula dois parametros da o resultado (Pega valores no inputs e faz um calculo desejado)</b>
+        <br/>
+        <br/>
+        <form name="formC">
+            <input type="number" name="yearnow" placeholder="ano que estamos" required />
+            <input type="number" name="born" placeholder="ano que nasceu" required />
+            <br/>
+            <br/>
+            <input type="button" name="submit" value="Ver minha idade" onclick="showAnos()">
+        </form>
+        <br/> Resultado:
+        <i id="veja"></i>
+
+        <script language="javascript">
+            function showAnos() {//*obs no final da página sobre somar
+                var anoatual = document.formC.yearnow.value;
+                var anonascimento = document.formC.born.value;
+                var suaidade = anoatual - anonascimento;
+
+                document.getElementById("veja").innerHTML = suaidade;
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Prompt Box - Habilita uma caixa (tipo alerta) para escrever algo</b>
+        <br/>
+        <br/>
+        <form name="formD">
+            <input type="button" name="submit" value="Mostrar Prompt Box" onclick="meuPrompt()">
+        </form>
+        <br/> Seu nome é:
+        <i id="mostraPrompt"></i>
+
+        <script language="javascript">
+            function meuPrompt() {
+                var info = prompt("Por favor \nescreva seu nome");
+                document.getElementById("mostraPrompt").innerHTML = info;
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Confirm Box - Caixa de diálogo (tipo alerta) para respostas de sim ou não (OK ou Cancelar)</b>
+        <br/>
+        <br/>
+        <form name="formE">
+            <input type="button" name="submit" value="Mostrar diálogo" onclick="meuConfirm()">
+        </form>
+        <br/> Resposta do Confirme Box:
+        <i id="mostraConfirm"></i>
+
+        <script language="javascript">
+            function meuConfirm() {
+                var confirmacao = confirm("Gostou das atividades nessa página?");
+                if (confirmacao == true) {
+                    alert("Obrigado e continue praticando");
+                    resposta = "Sim, gostou";
+                } else {
+                    alert("Que pena, mas já foi alguma coisa");
+                    resposta = "Não gostou"
+                }
+                document.getElementById("mostraConfirm").innerHTML = resposta;
+            };
+        </script>
+    </section>
+    <!-- PARA FAZER SOMA E NÃO CONCATENAR: var minhaIdade = parseInt(nascimento) + parseInt(anoAtual);  -->
+</body>
+
+>>>>>>> dc5313a3e06780f2d40a75f6fd124c11949e0a77:functions(practicing).html
 </html>

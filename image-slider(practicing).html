@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br">
 
@@ -87,4 +88,95 @@
         </section>
 </body>
 
+=======
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Image Slider</h1>
+
+    <section>
+        <b>Criar um simples slider de imagens, usando array para cada url de imagem, botões voltar e próximo (sem animação)</b>
+        <br/>
+        <br/>
+        <div id="imgslider">
+            <button onclick="voltar()"> Prev </button>
+            <img id="slider" src="image/img01.jpg" />
+            <button onclick="proximo()"> Next </button>
+        </div>
+
+        <script>
+            var images = [
+                'image/img01.jpg',
+                'image/img02.jpg',
+                'image/img03.jpg'
+            ];
+            var num = 0;
+            function proximo() {
+                var slider = document.getElementById('slider');
+                num++;
+                if (num >= images.length) {
+                    num = 0;
+                }
+                slider.src = images[num];
+            };
+            function voltar() {
+                var slider = document.getElementById('slider');
+                num--;
+                if (num < 0) {
+                    num = images.length - 1;
+                }
+                slider.src = images[num];
+            };
+        </script>
+        </section>
+
+
+        <section>
+            <b>Criar slider com todas imagens no html </b>
+            <br/>
+            <br/>
+            <div class="display-container">
+                <img class="mySlides" src="image/img01.jpg">
+                <img class="mySlides" src="image/img02.jpg">
+                <img class="mySlides" src="image/img03.jpg">
+
+                <button onclick="btn(-1)">&#10094;</button>
+                <button onclick="btn(1)"> &#10095;</button>
+            </div>
+
+            <script> //EXPLICAÇÃO:  https://www.w3schools.com/w3css/w3css_slideshow.asp
+                var arrayX = 1; //isso é uma array 1 = imagem 2
+                showDivs(arrayX); //isso = função
+
+                function btn(numeroclick) {
+                    showDivs(arrayX += numeroclick);//quando clica na função btn soma ou diminui "arrayX"
+                }
+
+                function showDivs(numeroDaImg) {
+                    var img = document.getElementsByClassName("mySlides");
+
+                    if (numeroDaImg > img.length) {
+                        arrayX = 1
+                    }
+                    if (numeroDaImg < 1) {
+                        arrayX = img.length
+                    }
+                    for (i = 0; i < img.length; i++) {
+                        img[i].style.display = "none";
+                    }
+                    img[arrayX - 1].style.display = "block"; //insere na array 1 (imagem 2), com menos 1 = array 0 = imagem 1
+                };
+            </script>
+        </section>
+</body>
+
+>>>>>>> dc5313a3e06780f2d40a75f6fd124c11949e0a77
 </html>

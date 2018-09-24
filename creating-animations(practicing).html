@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!doctype html>
 <html lang="pt-br">
 
@@ -36,4 +37,44 @@
     </section>
 </body>
 
+=======
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Creating Animations</h1>
+
+    <section>
+        <b>animção setada no JS é de cima para baixo da esquerda pra direita, final na direita abaixo. </b>
+        <br/><br/>
+        <div id="container">
+            <div id="box"> </div>
+        </div>
+        
+        <script language="javascript">
+            var posicao = 0;
+            var tempo = setInterval(mytime, 10);
+            var elemento = document.getElementById("box");
+
+            function mytime() {
+                if (posicao == 150) {
+                    clearInterval(tempo);
+                } else {
+                    posicao += 1;
+                    elemento.style.left = posicao + "px";
+                    elemento.style.top = posicao + "px";
+                }
+            }
+        </script>
+    </section>
+</body>
+
+>>>>>>> dc5313a3e06780f2d40a75f6fd124c11949e0a77
 </html>
