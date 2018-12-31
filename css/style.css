@@ -6,7 +6,7 @@ body {
 h1,
 h2,
 h3 {
-  color: #999;
+  color: #888;
 }
 
 section {
@@ -21,7 +21,7 @@ i {
 }
 
 p {
-  color: #999;
+  color: #555;
 }
 
 ul li:hover {
@@ -33,20 +33,29 @@ ul li:hover {
   color: blueviolet;
 }
 
+.error {
+  outline: 2px solid red;
+}
+
 /*animations*/
 
 #container {
-  width: 200px;
-  height: 200px;
-  background: #999;
+  width: 400px;
+  height: 225px;
+  background: url('../image/airport.png');
   position: relative;
 }
 
 #box {
-  width: 50px;
-  height: 50px;
-  background: white;
+  width: 80px;
+  height:80px;
+  background: url('../image/plane.png');
   position: absolute;
+}
+
+.pista {
+  left: 310px!important;
+  transition: 3s;
 }
 
 /*DOM events*/

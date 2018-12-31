@@ -1,0 +1,165 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Functions - Soma, alerta, prompt box</h1>
+
+    <section>
+        <b>Função simples</b>
+        <br />
+        Inserir função de click no botão e alerta escrito: Deu certo!
+        <br /><br />
+        <input type="button" name="submit" class="alerta" value="Click para chamar a função de alert">
+
+        <script language="javascript">
+            document.querySelector(".alerta").addEventListener("click", funcAlert);
+            function funcAlert() {
+                alert("Deu certo!");
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Usando parametros</b>
+        <br />
+        <strong>soma de dois parametros: programação + input. Pega nome do input e soma com palavra setada no JS</strong>
+        <br />
+        Inserir função de click no botão e alerta escrito: Olá + seu nome
+        <br /><br />
+        <form name="formA">
+            <input type="text" name="funcaoA" id="funcaoA" required="" placeholder="Escreva seu nome" />
+            <input type="button" name="submit" class="somaparametros" value="Alerta">
+        </form>
+        <br />
+
+        <script language="javascript">
+            document.querySelector(".somaparametros").onclick = function () { funcSomaparametros() };
+            function funcSomaparametros() {
+                var nome = document.formA.funcaoA.value;
+                alert("Olá " + nome);
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Multiplos parametros</b>
+        <br />
+        <strong> Soma de dois ou mais parametros: programação + os inputs. Pega todos os nomes dos inputs e soma com as palavras setadas</strong>
+        <br />
+        Inserir função de click direto no input de botão
+        <br />
+        <br />
+        <form name="formB">
+            <input type="text" name="mnome" placeholder="Escreva seu nome" required="" />
+            <input type="number" name="midade" placeholder="escreva sua idade" required="" />
+            <br />
+            <br />
+            <input type="button" name="submit" value="Ver nome + idade" onclick="funcNomeidade()">
+        </form>
+        <br /> Resultado:
+        <i id="escreve">Seu nome e sua idade é...</i>
+
+        <script language="javascript">
+            function funcNomeidade() {
+                var meunome = document.formB.mnome.value;
+                var minhadade = document.formB.midade.value;
+
+                document.getElementById("escreve").innerHTML = "Meu nome é " + meunome + " e minha idade é " + minhadade;
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>The return Statement</b>
+        <br />
+        <strong>Calcula dois parametros da o resultado, Pega valores no inputs e faz um calculo desejado. </strong>
+        <br />
+        Para somar e não concatenar usa-se "parseInt(variavelAquiDentro) + ..."
+        <br /><br />
+        <form name="formC">
+            <input type="number" name="yearnow" placeholder="ano que estamos" required="" />
+            <input type="number" name="born" placeholder="ano que nasceu" required="" />
+            <br />
+            <br />
+            <input type="button" name="submit" value="Ver minha idade" onclick="showAnos()">
+        </form>
+        <br />
+        <i id="veja">Sua idade e a soma dos anos é...</i>
+
+        <script language="javascript">
+            function showAnos() {
+                var atual = formC.yearnow.value;
+                var nasc = formC.born.value;
+                var suaidade = atual - nasc;
+                var anosoma = parseInt(atual) + parseInt(nasc);
+
+                document.getElementById("veja").innerHTML = "Sua idade é " + suaidade + " as somas dos anos é: " + anosoma;
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Prompt Box</b>
+        <br />
+        <strong> uma caixa de diálogo (tipo alerta) para escrever seu nome, e o nome escrito aparecer abaixo do botão</strong>
+        <br /><br />
+        <form name="formD">
+            <input type="button" name="submit" value="Mostrar Prompt Box" onclick="meuPrompt()">
+        </form>
+        <br />
+        <i id="mostraPrompt">Seu nome é:</i>
+
+        <script language="javascript">
+            function meuPrompt() {
+                var minhapergunta = prompt("Qual é seu nome?");
+                document.getElementById("mostraPrompt").innerHTML = "Seu nome é: " + minhapergunta;
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Confirm Box</b>
+        <br />
+        <strong>Caixa de diálogo (tipo alerta) para respostas de sim ou não (OK ou Cancelar)</strong>
+        <br />
+        Crie uma variavel com comando "confirm(x)" perguntando: Gostou das atividades nessa página?;
+        <br />
+        Crie um if else para escrevar as respostas na página de "true" ou "false" com alerta de resposta no alerta.
+        <br />
+        <br />
+        <form name="formE">
+            <input type="button" name="submit" value="Mostrar diálogo" onclick="meuConfirm()">
+        </form>
+        <br /> Resposta do Confirme Box:
+        <i id="mostraConfirm"></i>
+
+        <script language="javascript">
+            function meuConfirm() {
+                var pergunta = confirm("Gostou das atividades nessa página?");
+                var mostra = "";
+                if (pergunta == true) {
+                    alert("Que bom, continue praticando javascript para melhor");
+                    mostra = "Sim, gostou"
+                } else {
+                    alert("Haa que pena, mas já ajuda em alguma coisa");
+                    mostra = "Não gostou"
+                }
+                document.getElementById("mostraConfirm").innerHTML = mostra;
+            }
+        </script>
+    </section>
+</body>
+
+</html>

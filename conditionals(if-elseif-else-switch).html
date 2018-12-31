@@ -1,0 +1,199 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel='stylesheet' href='css/style.css' type='text/css' />
+	<title>JS tutorial practicing</title>
+</head>
+
+<body>
+	<h1>Conditionals - if elseif else switch</h1>
+
+	<section>
+		<b>Conditionals - if Statement</b>
+		<br /> irá mostra alerta, somente se for maior de idade!
+		<form>
+			<input type="number" name="idade" id="minhaIdade" required="" placeholder="Inseira um número" />
+			<input type="button" name="submit" id="btn" value="Alerta">
+		</form>
+
+		<p>JS: escreva função para botão de alerta com "addEventListener";
+			<br /> escreva uma condição de exibir um alerta somente com if statement se for maior ou igual a 18.</p>
+
+		<script language="javascript">
+			document.getElementById("btn").addEventListener("click", mostraidade);
+			function mostraidade() {
+				var aidade = document.getElementById("minhaIdade").value;
+				if (aidade >= 18) {
+					alert("Sua idade é: " + aidade + "\nSignifica que você é maior ou igual a 18 anos")
+				}
+			};
+		</script>
+	</section>
+
+
+	<section>
+		<b>Conditionals - if else Statement</b>
+		<br /> Insira um número para saber quem é maior entre A ou B:
+		<form>
+			A <input type="number" name="a" id="a" required />
+			<br />
+			B <input type="number" name="b" id="b" required />
+			<br />
+			<br />
+			<input type="button" name="submit" id="btn2" value="Resultado">
+		</form>
+		<br /> Valor:
+		<i id="valor"></i>
+
+		<p>JS: escreva função para botão de alerta com ".onclick";
+			<br /> escreva uma condição de exibir resposta com if e else statement somando os 2 valores do input.</p>
+		<script language="javascript">
+			document.getElementById("btn2").onclick = function () { mostramaior() };
+			function mostramaior() {
+				var a = document.getElementById("a").value;
+				var b = document.getElementById("b").value;
+				var valor = document.getElementById("valor");
+				if (a > b) {
+					valor.innerHTML = "A é maior que B"
+				} else {
+					valor.innerHTML = "B é maior que A"
+				}
+			}
+		</script>
+	</section>
+
+	<section>
+		<b>Conditionals - if else if else Statement</b>
+		<br /> Selecione um curso:
+		<form name="meuform">
+			<select name="cursos">
+				<option value=""></option>
+				<option value="html">HTML</option>
+				<option value="css">CSS</option>
+			</select>
+			<br />
+			<br />
+			<input type="button" name="submit" value="Alerta o Curso" onclick="validateForm()">
+		</form>
+
+		<p>JS: escreva uma condição de exibir alerta com if, else if, else statement, para quando tiver selecionado e não
+			selecionado, exibindo a seleção.</p>
+		<script language="javascript">
+			function validateForm() {
+				var opcoes = document.meuform.cursos.value;
+				if (opcoes == "html") {
+					alert("Você escolheu HTML");
+				} else if (opcoes == "css") {
+					alert("Você escolheu CSS");
+				} else {
+					alert("Escolha um curso!")
+				}
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Conditionals - Switch</b>
+		<br />
+		<form name="minhaform">
+			Digita um número para VER O MÊS:
+			<input type="number" name="omes" id="myInput" required max="12" />
+			<input type="button" name="submit" value="Mostrar Mês" onclick="validar1()">
+			<br /> <br /> Mês escolhido acima foi:
+			<b id="demo"></b>
+		</form>
+		<p>JS: escreva uma mês para cada número como resposta é uma resposta para número errado ou campo vazio.</p>
+		
+		<script language="javascript">
+			function validar1() {
+				var numeromeses = document.getElementById("myInput").value;
+				switch (numeromeses) {
+					case "1":
+						resposta = "Janeiro";
+						break;
+					case "2":
+						resposta = "Fevereiro";
+						break;
+					case "3":
+						resposta = "Março";
+						break;
+					case "4":
+						resposta = "Abril";
+						break;
+					case "5":
+						resposta = "Maio";
+						break;
+					case "6":
+						resposta = "Junho";
+						break;
+					case "7":
+						resposta = "Julho";
+						break;
+					case "8":
+						resposta = "Agosto";
+						break;
+					case "9":
+						resposta = "Setembro";
+						break;
+					case "10":
+						resposta = "Outubro";
+						break;
+					case "11":
+						resposta = "Novembro";
+						break;
+					case "12":
+						resposta = "Dezembro";
+						break;
+					default:
+						resposta = "Campo vazio ou número invalido, somente de 1 à 12"
+				}
+				document.getElementById("demo").innerHTML = resposta;
+			}
+		</script>
+
+		<form name="myform">
+			Escreva um mês para exibir o aleta com a ESTAÇÃO DO ANO:
+			<br />
+			<input type="text" name="fmeses" id="fmes" required />
+			<input type="button" name="submit" value="Alerta Estação" onclick="validar2()">
+		</form>
+
+		<p>JS: escreva para cada 3 meses uma estação do ano é uma resposta para número errado ou campo vazio.</p>
+		<script language="javascript">
+			function validar2(){
+				var mes = document.getElementById("fmes").value;
+
+				switch (mes){
+					case "janeiro":
+					case "fevereiro":
+					case "março":
+					responder = "Verão";
+					break;
+					case "abril":
+					case "maio":
+					case "junho":
+					responder = "Outono";
+					break;
+					case "julho":
+					case "agosto":
+					case "setembro":
+					responder = "Inverno";
+					break;
+					case "outubro":
+					case "novembro":
+					case "dezembro":
+					responder = "Primavera";
+					break;
+					default:
+					responder = "Escreva o mês tudo em minúsculo";
+				}
+				alert(responder);
+			}
+		</script>
+	</section>
+</body>
+
+</html>

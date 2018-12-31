@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Creating Animations</h1>
+
+    <section>
+        <b>animação setada no JS é de cima para baixo da esquerda pra direita, final na direita abaixo. </b>
+        <br />
+        Usar "setInterval" e CSS com container position relative e o box que se mexe com position absolute e pelo JS adicionar uma class "pista" no "if".
+        <br /><br />
+        <input type="button" value="Animar" name="submit" onclick="start()">
+        <br /><br />
+        <div id="container">
+            <div id="box"></div>
+        </div>
+
+        <script language="javascript">
+            function start() {
+                var posicao = 0;
+                var tempo = setInterval(meutempo, 10);
+                var elemento = document.getElementById("box");
+
+                function meutempo() {
+                    if (posicao == 130) {
+                        clearInterval(tempo);
+                        elemento.classList.add("pista");
+                    } else {
+                        posicao ++;
+                        elemento.style.top = posicao + "px";
+                        elemento.style.left = posicao + "px";
+                        
+                    }
+                }
+            }
+        </script>
+    </section>
+</body>
+
+</html>

@@ -1,0 +1,206 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Handling Events - manipulação de eventos</h1>
+
+    <section>
+        <p><b>ONLOAD:</b> Se ativa APÓS termina de carregar a página.</p>
+        <p>Fora do ONLOAD: Se ativa ANTES de carregar a página.</p>
+
+        <script>
+            window.onload = function () {
+                alert('Página carregou só agora apareceu')
+            }
+            alert("Apareceu antes de carregar a página")
+        </script>
+    </section>
+
+    <section>
+        <p><b>ONCLICK:</b> algumas formas de criar "click".</p>   
+        <b>Exemplo 01</b> cria uma função com ação direto na tag
+        <br />
+        <button id="exemplo1" onclick="alert('Exemplo 01 - OK')">exemplo 01</button>
+        <br /><br />
+
+        <b>Exemplo 02</b> cria uma função com nome direto na tag
+        <br />
+        <button id="exemplo2" onclick="exemplo2()">exemplo 02</button>
+        <br /><br />
+
+        <b>Exemplo 03</b> cria uma função no javaScript usando "onclick"
+        <br />
+        <button id="exemplo3">exemplo 03</button>
+        <br /><br />
+
+        <b>Exemplo 04</b> cria uma função no javaScript usando "addEventListener" mais nome da função
+        <br />
+        <button id="exemplo4">exemplo 04</button>
+        <br /><br />
+
+        <b>Exemplo 05</b> cria uma função no javaScript usando "addEventListener" e escreve a função direto
+        <br />
+        <button id="exemplo5">exemplo 05</button>
+        <br /><br />
+
+        <b>Exemplo 06</b> cria uma variável para o botão, cria função usando "addEventListener", cria função
+        "removeEventListener" pegando a variável.
+        <br />
+        <button id="exemplo6">exemplo 6 Só 1 click</button>
+
+        <script language="javascript">
+            function exemplo2() {
+                alert("exemplo 02 - OK");
+            };
+
+            document.getElementById("exemplo3").onclick = function () { exemplo3() };
+            function exemplo3() {
+                alert("exemplo 03 - OK");
+            };
+
+            document.getElementById("exemplo4").addEventListener("click", exemplo4);
+            function exemplo4() {
+                alert("exemplo 04 - OK");
+            };
+
+            document.getElementById("exemplo5").addEventListener("click", function () {
+                alert("exemplo 05 - OK");
+            });
+
+            var ex06 = document.getElementById("exemplo6");
+            ex06.addEventListener("click", exemplo6);
+            function exemplo6() {
+                alert("exemplo 06 - OK");
+                ex06.removeEventListener("click", exemplo6);
+            };
+        </script>
+    </section>
+
+    <section>
+        <p><b>MOUSEOVER:</b> evento aconte quando o curso do mouse estiver acima do evento selecionado. <br />
+        <b>MOUSELEAVE:</b> evento aconte quando o curso do mouse sair de acima do evento selecionado.</p>
+        <a href="javascript:avoid(0)" class="hover">MOUSEOVER e MOUSELEAVE</a>
+        <br /><br />
+        <div id="hover-leave">MOUSEOVER sumir e MOUSELEAVE aparecer</div>
+
+        <script>
+            var mouse = document.querySelector(".hover")
+            mouse.addEventListener('mouseover', function () {
+                var textAcao = document.querySelector("#hover-leave");
+                textAcao.style.display = "none";
+
+                mouse.addEventListener('mouseleave', function () {
+                    textAcao.style.display = "block";
+                });
+            });
+        </script>
+        </table>
+    </section>
+
+    <section>
+        <p><b>CHANGE:</b> é ativado para os elementos input, select e textarea quando uma alteração no valor do elemento é
+            feita pelo usuário.</p>
+        <select id="linguages">
+            <option value="valor 0"> </option>
+            <option value="valor 1">PHP </option>
+            <option value="valor 2">javaScript</option>
+            <option value="valor 3">java</option>
+            <option value="valor 4">C#</option>
+        </select>
+        <br /><br />
+        <div id="change">Selecionado mostrar aqui</div>
+
+        <script>
+            document.getElementById("linguages").addEventListener('change', function () {
+                var todasOptions = this.options;
+                var arrayAtual = this.selectedIndex;
+
+                document.getElementById("change").innerHTML =
+                    "Selecionado: " + todasOptions[arrayAtual].text + "<br/><br/>"
+                    + " HTML Value: " + this.value;
+            });
+        </script>
+    </section>
+
+    <section>
+        <p><b>BLUR:</b> é disparado quando um elemento perdeu o foco (quando sai do input).</p>
+        <input type="text" id="nome" placeholder="digite aqui">
+        <input type="text" id="copienome" placeholder="cópia texto automático">
+
+        <script>
+            var copienome = document.getElementById('copienome');
+            document.getElementById('nome').addEventListener('blur', function () {
+                copienome.value = this.value;
+                copienome.style.textTransform = "uppercase";
+            });
+        </script>
+    </section>
+
+    <section>
+        <p><b>KEYUP:</b> é acionado quando uma tecla é liberada, ou seja assim que você tirar o dedo dela.</p>
+        <input type="text" id="keyup" placeholder="digite aqui"> - <i id="result">resultado aqui</i>
+
+        <script>
+            document.getElementById("keyup").addEventListener('keyup', function () {
+                document.getElementById("result").innerHTML = this.value;
+            });
+        </script>
+    </section>
+
+    <section>
+        <p><b>KEYPRESS:</b> é disparado quando uma tecla é pressionada. Neste caso a tecla 13 que em keyCode = ENTER</p>
+        <input type="text" id="texto" placeholder="digite aqui e ENTER"> - <i id="resultado"> resultado aqui</i>
+
+        <script>
+            var resultado = document.getElementById("resultado");
+            document.getElementById("texto").addEventListener('keypress', function (evento) {
+                if (evento.keyCode == 13) {
+                    resultado.innerHTML = this.value;
+                }
+            })
+        </script>
+    </section>
+
+    <section>
+        <p><b>SUBMIT:</b> é disparado quando o formulário entre em estado de submit ou seja enviar os dados para algum local.</p>
+        <form action="#" method="post">
+            <input type="text" name="name" placeholder="Nome">
+            <input type="password" name="password" placeholder="Senha">
+            <input type="email" name="email" placeholder="txt@com.br">
+            <button type="submit">Enter</button>
+        </form><br />
+        <b id="resposta"></b>
+
+        <script>
+            var form = document.querySelector("form");
+
+            form.addEventListener('submit', function (evento) {
+                evento.preventDefault();
+                var escreve = "Formulários validados";
+
+                for (var i = 0; i < this.elements.length; i++) {
+                    var item = this.elements[i];
+
+                    if (item.type !== "submit") {
+                        if (item.value == "") {
+                            item.classList.add("error");
+                            escreve = "Erro de validação";
+                        } else {
+                            item.classList.remove("error");
+                        }
+                    }
+                }
+                document.getElementById("resposta").innerHTML = escreve;
+            });
+        </script>
+    </section>
+</body>
+
+</html>
