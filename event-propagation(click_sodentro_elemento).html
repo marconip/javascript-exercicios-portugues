@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Event Propagation</h1>
+
+    <section>
+        <b>stopPropagation() - Permite clicar em um elemento filho sem que o elemento pai seja ativado (tendo os dois
+            elementos
+            algum tipo de função).</b>
+        <br />
+        <br /> Click DIV 1:
+        <br />
+        <div class="div" onclick="func2()">DIV 2
+            <div class="div" onclick="func1()">DIV 1</div>
+        </div>
+        <br />
+        Stop propagation:
+        <input type="checkbox" id="check" style="box-shadow:0px 0px 0px 2px darkred;background:#fff">
+        <br />
+        Por causa da DIV 1 (filho), estar dentro da DIV 2 (pai), ambos recebe o click, quando clica na DIV 1.
+        <br />
+        Marque o "Stop propagation", e tente de novo.
+        <br />
+        O metodo "stopPropagation()" previni a ação do elemento pai (DIV 2).
+
+        <script>
+            var checado = document.querySelector("#check");
+            function func1() {
+                alert("DIV 1 \nfoi clicado");
+                if (checado.checked) {
+                    event.stopPropagation();
+                }
+            }
+            function func2() {
+                alert("DIV 2 \nfoi clicado")
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Exemplo 2 - Com três elementos, habilita o "stopPropagation()" com ckeckbox. </b>
+        <br />
+        <br />
+        <div class="div div2">
+            DIV
+            <p>P
+                <br /><br />
+                <span>SPAN</span>
+            </p>
+        </div>
+        <br />
+        Pegar apenas "SPAN": <input type="checkbox" id="checkspan" style="box-shadow:0px 0px 0px 2px darkred;background:#fff"><br />
+        Pegar apenas "P": <input type="checkbox" id="checkp" style="box-shadow:0px 0px 0px 2px darkred;background:#fff">
+
+        <script>
+            var div = document.querySelector(".div2");
+            var p = document.querySelector(".div2 p");
+            var span = document.querySelector(".div2 span");
+            var spanStop = document.querySelector("#checkspan");
+            var pStop = document.querySelector("#checkp");
+
+            span.onclick = function () {
+                alert("SPAN \nFoi clicado!");
+                if (spanStop.checked) {
+                    event.stopPropagation();
+                }
+            };
+
+            p.onclick = function () {
+                alert("P \nFoi clicado!");
+                if(pStop.checked){
+                    event.stopPropagation();
+                }
+            };
+
+            div.onclick = function () {
+                alert("DIV \nFoi clicado!");
+            };
+        </script>
+    </section>
+</body>
+
+</html>
