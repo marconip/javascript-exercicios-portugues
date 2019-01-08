@@ -1,0 +1,152 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+	<link rel='stylesheet' href='css/style.css' type='text/css' />
+	<title>JS tutorial practicing</title>
+</head>
+
+<body>
+	<h1>Loops </h1>
+
+	<section>
+		<b>For Loop</b>
+		<br />Usa-se no JS, o length e a array
+		<br /><br />Pega a lista de curso com a class e acrescenta a palava "curso" antes e "avançado" depois
+		<br /><br />
+		<div class="meuloop">HTML</div>
+		<div class="meuloop">CSS</div>
+		<div class="meuloop">JavaScript</div>
+		<div class="foraLoop">PHP (fora do loop)</div>
+		<br />
+		<input type="button" name="submit" value="criar textos" onclick="forloop()">
+
+		<script>
+			function forloop() {
+				var classes = document.getElementsByClassName("meuloop");
+
+				for (i = 0; i < classes.length; i++) {
+					var aclass = classes[i].innerHTML;
+					classes[i].innerHTML = "<i>Cursos </i>" + aclass + "<i> avançado</i>";
+				}
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>While Loop</b>
+		<br /> Escreva a quantidade de números a se repetir:
+		<form name="form">
+			<input type="number" name="repeate" required />
+			<input type="button" name="submit" value="Repetir" onclick="whileloop()">
+		</form>
+		<i id="mostra1"></i>
+
+		<script>
+			function whileloop() {
+				var valor = document.form.repeate.value;
+				var escreve = "";
+				var i = 1;
+
+				while (i <= valor) {
+					escreve += i + " ";
+					i++;
+				}
+				document.getElementById("mostra1").innerHTML = escreve;
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Do... while Loop</b>
+		<br /> Usa-se no JS primeiro o "do" e "while"
+		<br /><br /> Escreva a quantidade de números a se repetir:
+		<form name="form2">
+			<input type="number" name="repeate2" required />
+			<input type="button" name="submit" value="Repetir" onclick="dowhileloop()">
+		</form>
+		<i id="mostra2"></i>
+
+		<script>
+			function dowhileloop() {
+				var numero = form2.repeate2.value;
+				var responde = "";
+				var i = 1;
+				do {
+					responde += i + " ";
+					i++;
+				}
+				while (i <= numero);
+				document.getElementById("mostra2").innerHTML = responde;
+			}
+		</script>
+	</section>
+
+	<section>
+		<b>Break - Loop</b>
+		<br /> Usa-se no JS o "if" dentro do "for"
+		<br /><br /> Escreva a quantidade de números a se repetir:
+		<form name="formA">
+			contar até:
+			<input type="number" name="repeateA" required />
+			<br /> Para no número:
+			<input type="number" name="stop" required />
+			<br />
+			<input type="button" name="submit" value="Escrever" onclick="breakloop()">
+		</form>
+		<i id="mostra3"></i>
+
+		<script>
+			function breakloop(){
+				var meuValor = document.formA.repeateA.value;
+				var stopValor = document.formA.stop.value;
+				var mostra = "";
+
+				for(i = 1; i <= meuValor; i++){
+					if(i > stopValor){
+						break;
+					}
+					mostra += i + " ";
+				}
+				document.getElementById("mostra3").innerHTML = mostra;
+			};
+		</script>
+	</section>
+
+	<section>
+		<b>Continue - Loop (com ciação de tag "b" para o texto ficar dentro dela)</b>
+		<br /> usa-se no JS "if" dentro do "for"
+		<br /><br /> Escreva a quantidade de números a se repetir:
+		<form name="formB">
+			contar até:
+			<input type="number" name="repeateB" required />
+			<br /> não exibir o número:
+			<input type="number" name="escondeB" required />
+			<br />
+			<input type="button" name="submit" value="Escrever" onclick="continueloop()">
+		</form>
+		<br />
+		<i id="mostra4"></i>
+
+		<script>
+			function continueloop(){
+				var oValor = formB.repeateB.value;
+				var contValor = formB.escondeB.value;
+				var exibe = "";
+
+				for(i = 1; i <= oValor; i++){
+					if(i == contValor){
+						continue;
+					}
+					exibe += i + " ";
+				}
+				document.getElementById("mostra4").innerHTML = exibe;
+			};
+		</script>
+	</section>
+
+</body>
+
+</html>
