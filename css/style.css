@@ -1,5 +1,5 @@
 body {
-  background: #f1f1f1;
+  background: #ccc;
   padding: 30px;
 }
 
@@ -10,7 +10,7 @@ h3 {
 }
 
 section {
-  border: 1px solid #ccc;
+  border: 1px solid #999;
   padding: 20px;
   margin-bottom: 30px;
 }

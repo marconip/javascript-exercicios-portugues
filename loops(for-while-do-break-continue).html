@@ -9,7 +9,7 @@
 </head>
 
 <body>
-	<h1>Loops </h1>
+	<h1>Loop </h1>
 
 	<section>
 		<b>For Loop</b>
@@ -25,11 +25,12 @@
 
 		<script>
 			function forloop() {
-				var classes = document.getElementsByClassName("meuloop");
+				var classe = document.getElementsByClassName("meuloop");
 
-				for (i = 0; i < classes.length; i++) {
-					var aclass = classes[i].innerHTML;
-					classes[i].innerHTML = "<i>Cursos </i>" + aclass + "<i> avançado</i>";
+				for (i = 0; i < classe.length; i++) {
+					var cadaclasse = classe[i].innerHTML;
+
+					classe[i].innerHTML = "<i>Curso</i> " + cadaclasse + " <i>avançado</i>";
 				}
 			};
 		</script>
@@ -71,16 +72,18 @@
 
 		<script>
 			function dowhileloop() {
-				var numero = form2.repeate2.value;
+				var numero = document.form2.repeate2.value;
 				var responde = "";
 				var i = 1;
+
 				do {
 					responde += i + " ";
 					i++;
 				}
-				while (i <= numero);
-				document.getElementById("mostra2").innerHTML = responde;
-			}
+				while (i <= numero) {
+					document.getElementById("mostra2").innerHTML = responde;
+				}
+			};
 		</script>
 	</section>
 
@@ -99,13 +102,13 @@
 		<i id="mostra3"></i>
 
 		<script>
-			function breakloop(){
+			function breakloop() {
 				var meuValor = document.formA.repeateA.value;
 				var stopValor = document.formA.stop.value;
 				var mostra = "";
 
-				for(i = 1; i <= meuValor; i++){
-					if(i > stopValor){
+				for (i = 1; i <= meuValor; i++) {
+					if (i > stopValor) {
 						break;
 					}
 					mostra += i + " ";
@@ -123,7 +126,7 @@
 			contar até:
 			<input type="number" name="repeateB" required />
 			<br /> não exibir o número:
-			<input type="number" name="escondeB" required />
+			<input type="number" name="esconde" required />
 			<br />
 			<input type="button" name="submit" value="Escrever" onclick="continueloop()">
 		</form>
@@ -131,19 +134,19 @@
 		<i id="mostra4"></i>
 
 		<script>
-			function continueloop(){
-				var oValor = formB.repeateB.value;
-				var contValor = formB.escondeB.value;
-				var exibe = "";
+			function continueloop() {
+				var meuNumero = document.formB.repeateB.value;
+				var escondeNumero = document.formB.esconde.value;
+				var declara = "";
 
-				for(i = 1; i <= oValor; i++){
-					if(i == contValor){
+				for (i = 1; i <= meuNumero; i++) {
+					if (i == escondeNumero) {
 						continue;
 					}
-					exibe += i + " ";
+					declara += i + " ";
 				}
-				document.getElementById("mostra4").innerHTML = exibe;
-			};
+				document.getElementById("mostra4").innerHTML = declara;
+			}
 		</script>
 	</section>
 
