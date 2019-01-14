@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Image Slider</h1>
+
+    <section>
+        <b>com Array</b>
+        Simples slider de imagens, usando array para cada url de imagem, botões voltar e próximo (sem animação).
+        <br />
+        <br />
+        <div id="imgslider">
+            <button onclick="voltar()"> Prev </button>
+            <img id="slider" src="image/img01.jpg" />
+            <button onclick="proximo()"> Next </button>
+        </div>
+
+        <script>
+            var image = [
+                "image/img01.jpg", // esse é = 0  
+                "image/img02.jpg", // esse é = 1
+                "image/img03.jpg"  // esse é = 2
+            ];
+            var valor = 0;
+            function proximo() {
+                var slider = document.getElementById("slider");
+                valor++;
+                if (valor >= image.length) {
+                    valor = 0;
+                }
+                slider.src = image[valor];
+            };
+            function voltar() {
+                var slider = document.getElementById("slider");
+                valor--;
+                if (valor < 0) {
+                    valor = image.length - 1;
+                }
+                slider.src = image[valor];
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Criar slider com todas imagens no html </b>
+        <br/>cria variavel que recebe arrei 1;        
+        <br/>cria uma nome para função geral pega array
+        <br/>cria função para botão e dá um nomeX, dentro dessa função adiciona função array adiciona nomeX.
+        <br/>cria função geral com os if e loops, no loop insere style display none, fora/após o loop adiciona display block na array 1.
+        <br/>
+        <br/>
+        <div class="display-container">
+            <img class="mySlides" src="image/img01.jpg">
+            <img class="mySlides" src="image/img02.jpg">
+            <img class="mySlides" src="image/img03.jpg">
+
+            <button onclick="btn(-1)">&#10094;</button>
+            <button onclick="btn(1)"> &#10095;</button>
+        </div>
+
+        <script> //EXPLICAÇÃO:  https://www.w3schools.com/w3css/w3css_slideshow.asp
+            var array = 1;
+            minhaArray(array);
+            
+            function btn(cadaclick) {
+                minhaArray(array += cadaclick)
+            };
+
+            function minhaArray(valor) {
+                var slide = document.getElementsByClassName("mySlides");
+
+                if (valor > slide.length) {
+                    array = 1;
+                }
+                if (valor < 1) {
+                    array = slide.length;
+                }
+                for (i = 0; i < slide.length; i++){
+                    slide[i].style.display = "none";
+                }
+                slide[array -1].style.display = "block";
+            }
+        </script>
+    </section>
+</body>
+
+</html>
