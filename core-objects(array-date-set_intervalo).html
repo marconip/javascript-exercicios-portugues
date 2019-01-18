@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Core Objects - Array, DateTime (setInterval)</h1>
+
+    <section id="escolhap">
+        <b>Accessing an Array direto do html</b>
+        <br /> Busca todas as tags "span" e escreve a que foi escolhida, array 2 (exibe em 3seg.) usando o "setInterval".
+        <br /><br />
+        array 0 = <span>Barry</span><br />
+        array 1 = <span>Allen</span><br />
+        array 2 = <span>The flash</span>
+        <br />
+        <br />
+        <strong id="demo">em 3 segundos aparecerá aqui</strong>
+        
+        <script>
+            function minhaArray() {
+                var escolha = document.getElementsByTagName("span");
+
+                document.getElementById("demo").innerHTML = "Array 2 é: " + escolha[2].innerHTML;
+            }
+            setInterval(minhaArray, 3000);
+        </script>
+    </section>
+
+
+    <section>
+        <b>Accessing an Array</b>
+        <br /> (com if else) Busca todas as listas de "radio button" e escreve um resultado</b><br />
+        Dentro da função do botão inserir após o click tempo de 3 segundos e mostrará resultado.
+        <br /><br />
+        Selecione qual super heroi o Barry Allen é? <br /><br />
+
+        <input type="radio" name="gender" class="meuscheckbox"> The Flash</label>
+        <br />
+        <input type="radio" name="gender" class="meuscheckbox"> He-man</label>
+        <br />
+        <input type="radio" name="gender" class="meuscheckbox"> Batman</label>
+        <br />
+        <br />
+        <input type="button" name="submit" value="Resultado" onclick="verResultado()">
+        <br /><br />
+        <strong id="demo2"></strong>
+
+        <script>
+            function verResultado() {
+                setInterval(function () {
+                    var opcao = document.getElementsByClassName("meuscheckbox");
+                    var declara = "";
+                    if (opcao[0].checked == true) {
+                        declara = "Correto, esse é o homem mais rápido vivo";
+                    } else {
+                        declara = "Opção errado ou não houve escolha";
+                    }
+                    document.getElementById("demo2").innerHTML = declara;
+                }, 3000)
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Date Object</b>
+        <br />The Date Object = exibe o tempo/data
+        <br />Após o click mostra funções: hora (com minutos e segundos), Data (dia, mês e ano) e dia da semana.
+        <br /><br />
+        <input type="button" name="submit" value="Mostrar data" onclick="printTime()">
+        <br /><br />
+        <strong id="mostrar"></strong>
+
+        <script>
+            function printTime() {
+                var meutempo = new Date();
+                var hora = meutempo.getHours();
+                var min = meutempo.getMinutes();
+                var sec = meutempo.getSeconds();
+                var dia = meutempo.getDate();
+                var meses = ["Jan", "Fev", "Mar", "Apr", "Mai", "Jun", "Jul", "Ago", "Set", "Octo", "Nov", "Dec"];
+                var ano = meutempo.getFullYear();
+                var semana = ["domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+
+                document.getElementById("mostrar").innerHTML =
+                    "Hora: " + hora + ":" + min + ":" + sec + "<br/>" +
+                    "Data: " + dia + " de " + meses[meutempo.getMonth()] + " de " + ano + "<br/>" +
+                    semana[meutempo.getDay()];
+            };
+        </script>
+    </section>
+</body>
+
+</html>

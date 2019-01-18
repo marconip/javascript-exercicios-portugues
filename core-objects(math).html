@@ -1,0 +1,172 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Core Objects - Math</h1>
+
+    <section>
+        <b>The Math Object - Math.sqrt</b>
+        <br /> Inserira um número para saber no alerta a Raiz Quadrada, através de comandos "Math.sqrt(x)".
+        <br /><br />
+        <form>
+            <input type="text" name="raizquadrada" id="raizquadrada" required="" placeholder="Inseira um número" />
+            <input type="button" name="submit" value="ver resposta" onclick="validateForm()">
+        </form>
+        <strong id="demo3"></strong>
+
+        <script>
+            function validateForm() {
+                var minhaRaiz = Number(document.getElementById("raizquadrada").value);
+                var raiz = Math.sqrt(minhaRaiz);
+
+                document.getElementById("demo3").innerHTML = "A raiz quadrada de " + minhaRaiz + " é " + raiz;
+            }
+        </script>
+    </section>
+
+    <section>
+        <b>Math.round </b>
+        <br /> Retorna o valor do número mais próximo, através de comandos "Math.round(x)".
+        <br /><br />
+        <form>
+            <input type="text" name="around" id="around" required="" placeholder="Ex 5.5" />
+            <input type="button" name="submit" id="btnaround" value="Mostra número mais próximo">
+        </form>
+        <br />
+        <strong id="demo4"></strong>
+
+        <script>
+            document.getElementById("btnaround").addEventListener("click", funcRound);
+            function funcRound() {
+                var maisProximo = document.getElementById("around").value;
+
+                document.getElementById("demo4").innerHTML = Math.round(maisProximo);
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Math.ceil</b>
+        <br /> Retorna o valor <b>alto</b> do número mais próximo, através de comandos "Math.ceil(x)".
+        <br /><br />
+        <form>
+            <input type="text" name="ceil" id="ceil" required="" placeholder="Ex 5.1" />
+            <input type="button" name="submit" id="alto" value="Mostra número ALTO mais próximo">
+        </form>
+        <br />
+        <strong id="demo5"></strong>
+
+        <script>
+            document.getElementById("alto").onclick = function () { funcCeil() };
+            function funcCeil() {
+                var maisAlto = document.getElementById("ceil").value;
+                var numeroAlto = Math.ceil(maisAlto);
+
+                document.getElementById("demo5").innerHTML = numeroAlto;
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Math.floor</b>
+        <br /> Retorna o valor <b>baixo</b> do número mais próximo, através de comandos "Math.floor(x)".
+        <br /><br />
+        <form>
+            <input type="text" name="floor" id="floor" required="" placeholder="Ex 5.9" />
+            <input type="button" name="submit" id="baixo" value="Mostra número BAIXO mais próximo">
+        </form>
+        <br />
+        <strong id="demo6"></strong>
+
+        <script>
+            document.getElementById("baixo").onclick = function () {
+                var maisBaixo = document.getElementById("floor").value;
+
+                document.getElementById("demo6").innerHTML = Math.floor(maisBaixo);
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Random - Math.random(x)</b>
+        <br /> Retorna um valor aleatório entre 0 e o números escolhido, junto com o comando "Math.floor()".
+        <br /><br />
+        <form>
+            <input type="text" name="random" id="random1" required="" placeholder="Inseira um número" />
+            <input type="button" name="submit" id="aleatorio" value="Ver número aleatório">
+        </form>
+        <br />
+        <strong id="resp01">Resposta sem o número digitado</strong><br />
+        <strong id="resp02">Resposta com o número digitado</strong>
+
+        <script>
+            document.getElementById("aleatorio").onclick = function () {
+                var randomico = document.getElementById("random1").value;
+
+                document.getElementById("resp01").innerHTML = Math.floor(Math.random() * randomico);
+                document.getElementById("resp02").innerHTML = Math.floor(Math.random() * randomico) + 1 + " mais o digitado";
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Random entre strings/objects - Math.random(x)</b>
+        <br /> Retorna um valor aleatório entre as palavras digitadas abaixo, junto com o comando "Math.floor()".
+        <br /><br />
+        <form>
+            <input type="text" name="random" required="" id="rand1" />
+            <input type="text" name="random" required="" id="rand2" />
+            <input type="text" name="random" required="" id="rand3" />
+            <input type="button" name="submit" id="aleatorio2" value="Ver aleatório" onclick="funcRandom()">
+        </form>
+        <br />
+        <strong id="resp03"></strong>
+
+        <script>
+            function funcRandom() {
+                var valor1 = document.getElementById("rand1").value;
+                var valor2 = document.getElementById("rand2").value;
+                var valor3 = document.getElementById("rand3").value;
+                var valores = [valor1, valor2, valor3];
+
+                document.getElementById("resp03").innerHTML = valores[Math.floor(Math.random() * valores.length)];
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Random entre números escolhidos - Math.random(x)</b>
+        <br /> Retorna um valor aleatório entre números digitados baixo
+        <br /> cria variaveis com "Number(x)" junto com o comando "Math.floor(x)" e mais "(max-min)+min".
+        <br /><br />
+        <form>
+            <input type="text" name="random" required="" id="escolha1" />
+            <input type="text" name="random" required="" id="escolha2" />
+            <input type="button" name="submit" value="Ver aleatório entre" onclick="funcEntre()">
+        </form>
+        <br />
+        <strong id="resp04"></strong>
+
+        <script>
+            function funcEntre() {
+                var min = Number(document.getElementById("escolha1").value);
+                var max = Number(document.getElementById("escolha2").value);
+
+                document.getElementById("resp04").innerHTML = Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+        </script>
+    </section>
+</body>
+
+</html>
