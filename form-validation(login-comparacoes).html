@@ -25,35 +25,37 @@
     </section>
 
     <section>
-        <b>Validará usando if e alert se o campo nome for preechido, entrará no site sololearn.com, se não alerta para
-            preencher!</b>
-        <br/> ESCREVA no "form" o onsubmit com "return" mais nome da função.
-        <br/>
-        <br/>
-        <form name="myForm" action="https://www.sololearn.com" method="post" onsubmit="return validar01()">
+        <b>Validará usando if e alert</b>
+        <br />se o campo nome for preechido, entrará no site google.com, se não alerta para preencher! e cria borda
+        vermelha.
+        <br /> ESCREVA no "form" o onsubmit com "return" mais nome da função.
+        <br />
+        <br />
+        <form name="myForm" action="https://www.google.com/" method="post">
             <input type="text" name="fname" placeholder="Digite qualquer coisa">
             <input type="submit" value="Submit">
         </form>
 
         <script>
-            function validar01() {
-                var valor = document.myForm.fname.value;
-                if (valor == "") {
-                    alert("Escreva algo no campo");
-                    return false;
+            document.querySelector("form[name='myForm']").addEventListener('submit', function (event) {
+                var digitado = document.myForm.fname;
+                if (digitado.value == "") {
+                    event.preventDefault();
+                    digitado.classList.add("error");
+                    alert("Precisa preencher o campo");
                 }
-            };
+            });
         </script>
     </section>
 
     <section>
         <b>Simples validação do tipo login. </b>
-        Se validar (entra no site sololearn.com), se não ou os campos tiverem vazios exibe alerta.
+        <br />Se validar (entra no site google.com), se os campos tiverem vazios ou diferentes, exibe alerta.
         <br /> A validação é dada com "true" ou "false" usando if, "!=", "&&" e if dentro do if
-        <br /> ESCREVA mo "form" o onsubmit com "return" mais nome da função.
+        <br /> ESCREVA no "form" o onsubmit com "return" mais nome da função.
         <br />
         <br />
-        <form action="https://www.sololearn.com" method="post" onsubmit="return validar02()">
+        <form name="doisinput" action="https://www.google.com/" method="post" onsubmit="return validar02()">
             <input type="text" name="num1" id="num1" placeholder="Digite qualquer coisa" />
             <input type="text" name="num2" id="num2" placeholder="Repita o que foi escrito" />
             <input type="submit" value="Submit" />
@@ -61,17 +63,17 @@
 
         <script>
             function validar02() {
-                var campo1 = document.getElementById("num1").value;
-                var campo2 = document.getElementById("num2").value;
+                var valor1 = document.getElementById("num1").value;
+                var valor2 = document.getElementById("num2").value;
 
-                if (campo1 != "" && campo2 != "") {
-                    if (campo1 == campo2) {
+                if (valor1 != "" && valor2 != "") {
+                    if (valor1 == valor2) {
                         return true;
                     }
                 }
-                alert("Preecha os 2 campos iguais");
+                alert("campo vazio ou os caracteres estão diferentes");
                 return false;
-            }
+            };
         </script>
     </section>
 
@@ -91,21 +93,22 @@
         <script>
             function myFunction() {
                 var numero = document.getElementById("numb").value;
-                var resposta = document.getElementById("demo");
+                var responde = "";
 
-                if (isNaN(numero) || numero > 10 || numero < 1) {
-                    resposta.innerHTML = "Campo vazio ou digito invalido";
+                if (isNaN(numero) || numero < 1 || numero > 10) {
+                    responde = "Campo vázio ou digito inválido!";
                 } else {
-                    resposta.innerHTML = "Digitado: " + numero + " = OK";
+                    responde = numero + " é válido - OK";
                 }
-            }
+                document.getElementById("demo").innerHTML = responde;
+            };
         </script>
     </section>
 
 
     <section>
         <b>Validação com if, else, "isNaN", "?" e ":"</b>
-        Converta o input de resposta quando vazia em um número correspondente usando o Number(x);
+        Converta o input vazia em um número correspondente, usando o Number(x);
         <br />
         escreva sua idade para saber se tem idade suficiente a igual 18 anos
         <br /><br />
@@ -119,15 +122,48 @@
         <script>
             function myFunct() {
                 var idade = Number(document.getElementById("age").value);
-                var responde;
-
+                var declara = "";
                 if (isNaN(idade)) {
-                    responde = "Opis, escreva somente números";
+                    declara = "Inválido, digite apenas números!"
                 } else {
-                    responde = (idade < 18) ? idade + " é Menor de idade" : idade + " é Maior de idade";
+                    declara = (idade < 18) ? idade + ", " + "Você ainda não é maior de idade!" : idade + ", " + "Você é maior de idade!"
                 }
-                document.getElementById("demo2").innerHTML = responde;
-            };
+                document.getElementById("demo2").innerHTML = declara;
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>SUBMIT - Validar todos os campos vázios</b>
+        <br />É disparado quando o formulário entre em estado de submit ou seja enviar os dados para algum local.
+        <br /><br />
+        <form name="todos" action="https://www.google.com/" method="post">
+            <input type="text" name="name" placeholder="Nome">
+            <input type="password" name="password" placeholder="Senha">
+            <input type="email" name="email" placeholder="txt@com.br">
+            <button type="submit">Enter</button>
+        </form><br />
+        <b id="resposta"></b>
+
+        <script>
+            document.querySelector("form[name='todos']").addEventListener('submit', function (evento) {
+
+                for (i = 0; i < this.elements.length; i++) {
+                    var item = this.elements[i];
+
+                    if (item.type !== "submit") {
+                        if (item.value == "") {
+                            item.classList.add("error");
+                            escreve = "Preencha os campos em vermelho";
+                            evento.preventDefault();
+                        } else {
+                            item.classList.remove("error");
+                        }
+                    }
+                }
+                document.getElementById("resposta").innerHTML = escreve;
+            });
         </script>
     </section>
 </body>
