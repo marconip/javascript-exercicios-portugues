@@ -3,8 +3,10 @@
 <strong>Exercicios práticos para você que está estudando Javascript e já tem um conhecimento básico/intermediáro</strong>
 
 <strong>DESCRIÇÃO:</strong><br/>
-Arquivos em portugues para prática de exercícios em javascript.
-Todos essas atividades são baseadas nos tópicos do site/aplicativo Sololearn: https://www.sololearn.com/ (javascript).
+Arquivos em portugues para prática de exercícios em javascript.<br/>
+As atividades são baseadas nos tópicos do site/aplicativo SoloLearn e W3School além de outras que eu mesmo gerei.<br/>
+SoloLearn: https://www.sololearn.com/ (javascript).<br/>
+W3School: https://www.w3schools.com/js/default.asp
 
 <strong>NÍVEL:</strong><br/>
 Básico e intermediário.
