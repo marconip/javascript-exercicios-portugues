@@ -1,0 +1,96 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body style="background: #f1f1f1">
+    <h1>DOM - Adiciona classes em diferentes modos</h1>
+
+    <section>
+        <b>Adiciona classes diferentes para cada item clicado</b>
+        <br />Ao click, pega toda a lista e insere e retira class diferentes para cada item
+        <br /><br />
+        <div id="mylinks">
+            <button class="btn" data-class="active01">1</button>
+            <button class="btn" data-class="active02">2</button>
+            <button class="btn" data-class="active03">3</button>
+        </div>
+
+        <script type="text/javascript">
+            var elementos = document.querySelectorAll("#mylinks .btn");
+
+            elementos.forEach(function (el) {
+                el.onclick = function () {
+                    this.classList.toggle(el.dataset.class);
+                }
+            }); 
+        </script>
+    </section>
+
+
+    <section>
+        <b>Adiciona classe ao click e retira com outro click.</b>
+        <br /> Ao click, pega toda a lista com "forEach" e insere e retira a mesma class (active), para cada
+        item com
+        "classList.toggle"
+        <br />
+        <br />
+        <div id="myDIVs">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+        </div>
+
+        <script type="text/javascript">
+            var todaslistas = document.querySelectorAll("#myDIVs .btn");
+            todaslistas.forEach(function (cadaelemento) {
+                cadaelemento.onclick = function () {
+                    this.classList.toggle("active");
+                }
+            }); 
+        </script>
+    </section>
+
+    <section>
+        <b>Adicionar classe somente no menu clicado</b>
+        <br /> Ao click, será adicionado uma classe (active) no menu clicado e clicando em outro removera a classe do
+        antigo
+        adicionando no outro botão.
+        <br />
+        Usar-se "forEach" para os botões, variavel para botões active + if length > 0 + botoes com className.replace +
+        adiciona a class "active".
+        replace.
+        <br />
+        <br />
+        <div id="mymenu">
+            <button class="btn">1</button>
+            <button class="btn">2</button>
+            <button class="btn">3</button>
+            <button class="btn">4</button>
+            <button class="btn">5</button>
+        </div>
+
+        <script>
+            var btns = document.querySelectorAll("#mymenu .btn");
+
+            btns.forEach(function (cada) {
+                cada.onclick = function () {
+                    var botoes = document.getElementsByClassName("active");
+                    if (botoes.length > 0) {
+                        botoes[0].className = botoes[0].className.replace("active", "");
+                    }
+                    this.className += " active";
+                };
+            });
+        </script>
+    </section>
+</body>
+
+</html>

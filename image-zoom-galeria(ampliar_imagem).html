@@ -1,0 +1,76 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body>
+    <h1>Galeria de imagem </h1>
+
+    <section>
+        <b>Fecha quando clicar em qualquer lugar</b>
+        modal simples - ao click, pega lista de imagens e amplia, fechar clicado em qualquer lugar
+        <br/><br/>  
+        <img src="image/img01.jpg" class="clickimg myImg">
+        <img src="image/img02.jpg" class="clickimg myImg">
+        <img src="image/img03.jpg" class="clickimg myImg">
+
+        <div id="modal" class="modal" onclick="this.style.display='none'">
+            <div class="animate-zoom">
+                <img class="modal-content" id="img">
+            </div>
+        </div>
+
+        <!-- Optional JavaScript -->
+        <script type="text/javascript">
+            var cliq = document.querySelectorAll(".clickimg");
+            cliq.forEach(function (img) {
+                img.onclick = function () {
+                    document.getElementById("modal").style.display = "block";
+                    document.getElementById("img").src = this.src;
+                }
+            });
+        </script>
+    </section>
+
+
+    <section>
+        <b>Fecha com click no "X"</b>
+        ao click, pega lista de imagens e amplia, mostra alt como titulo e só fecha no "X"
+        <br/><br/>
+        <img class="myImg gallery" src="image/img01.jpg" alt="Imagem 01">
+        <img class="myImg gallery" src="image/img02.jpg" alt="Imagem 02">
+        <img class="myImg gallery" src="image/img03.jpg" alt="Imagem 03">
+
+        <div id="myModal" class="modal">
+            <span class="close">&times;</span>
+            <img class="modal-content" id="img02">
+            <div id="caption"></div>
+        </div>
+
+        <script type="text/javascript">
+            var modal = document.getElementById('myModal');
+            var modalImg = document.getElementById("img02");
+            var captionText = document.getElementById("caption");
+            var imagex = document.querySelectorAll(".gallery");
+            imagex.forEach(function (img) {
+                img.onclick = function () {
+                    modal.style.display = "block";
+                    modalImg.src = this.src;
+                    captionText.innerHTML = this.alt;
+                }
+            });
+            var span = document.getElementsByClassName("close")[0];
+            span.onclick = function () {
+                modal.style.display = "none";
+            }
+              //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img
+        </script>
+    </section>
+</body>
+
+</html>

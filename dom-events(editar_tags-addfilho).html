@@ -1,0 +1,194 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
+
+<body style="background: #f1f1f1">
+    <h1>DOM - Editar as tags</h1>
+
+    <section>
+        <b>Selecting Elements & Change Elements</b>
+        <br /> O atributo "src" da imagem será mudados após o click. O Hulk mudará a cor ao click do botão
+        <br />
+        <form>
+            <img id="myimg" src="image/grey-hulk.gif" alt="" />
+            <br />
+            <br />
+            <input type="button" name="submit" value="Hulk Verde" onclick="changegreen()">
+            <input type="button" name="submit" value="Hulk Vermelho" onclick="changered()">
+            <input type="button" name="submit" value="Hulk Cinza" onclick="changecinza()">
+        </form>
+
+        <script language="javascript">
+            var hulk = document.getElementById("myimg");
+            function changegreen() {
+                hulk.src = "image/green-hulk.gif";
+            };
+            function changered() {
+                hulk.src = "image/red-hulk.gif";
+            };
+            function changecinza() {
+                hulk.src = "image/grey-hulk.gif";
+            };
+        </script>
+    </section>
+
+    <section id="link">
+        <b>Selecting Elements & Change Elements</b>
+        <br />Ao click o atributo "href" do link será mudado em 3 segundos. o Link está apontando para o
+        ".../hulk-bruce-banner", após o click mudará para "javascript:void(0)"
+        <br />
+        <br /> Clique aqui:
+        <a href="https://www.marvel.com/characters/hulk-bruce-banner" target="_blanck">marvel.com/characters...</a>
+        No JS será criado uma funcão onclick.
+
+        <script language="javascript">
+            var link = document.querySelector("a");
+            link.addEventListener("click", funcMudaLink);
+            function funcMudaLink() {
+                setInterval(function () {
+                    link.href = "javascript:void(0)";
+                }, 3000);
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Textos em maiusculas/minusculas - "toUpperCase()"</b>
+        <br/><br/>
+        <i id="p4">essas palavras vão ficar em maiusculas e minuscula</i>
+        <br/><br/>
+        <button onclick="mFunc1()">MAIUSCULAS</button>
+        <br />
+        <br />
+        <button onclick="mFunc2()">minusculas</button>
+
+        <script>
+            function mFunc1() {
+                var maiuscula = document.getElementById("p4").innerHTML
+                document.getElementById("p4").innerHTML = maiuscula.toUpperCase();
+            };
+            function mFunc2() {
+                var minuscula = document.getElementById("p4").innerHTML
+                document.getElementById("p4").innerHTML = minuscula.toLowerCase();
+            };
+        </script>
+    </section>
+
+
+    <section>
+        <b>Selecting Elements & Change Elements</b>
+        <br /> Varios estilos da div será mudados após o click (largura, altura cor de fundo e da borda)
+        <br />
+        <br />
+        <div id="boxdiv"></div>
+        <input type="button" name="submit" value="Mudar Style" onclick="changestyle()">
+
+        <script language="javascript">
+            var box = document.getElementById("boxdiv");
+            function changestyle() {
+                box.style.width = "200px";
+                box.style.height = "80px";
+                box.style.backgroundColor = "#000";
+                box.style.border = "5px solid red";
+            }
+        </script>
+    </section>
+
+
+    <section>
+        <b>Adding Elements</b>
+        <br /> Ao click, acrescente/cria um texto (filho) é também uma tag dentro de uma tag PAI já existente no html.
+        <br />
+        Duas formas de fazer com: "createElement(x) + innerHTML" e com "createElement(x) + createTextNode +
+        appendChild"
+        <br />
+        <br />
+        <b id="demo">conteúdo pai, receberá uma tag nova (filho)<br /><br /></b>
+        <input type="button" name="submit" value="Criar a cada click" onclick="createEl()">
+
+        <script language="javascript">
+            var pai = document.getElementById("demo");
+
+            function createEl() {
+                var novofilho = document.createElement("i");
+                novofilho.innerText = "Esse é o filho gerado";
+
+                var filho2 = document.createElement("p");
+                var outrofilho = document.createTextNode(" Esse é o segundo filho gerado");
+                filho2.appendChild(outrofilho);
+
+                pai.appendChild(novofilho);
+                pai.appendChild(filho2);
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>Removing Elements</b>
+        <br /> Ao click, será removido o paragrafo (filho) 1 de uma tag PAI já existente no html.
+        <br />
+        Duas formas de fazer com: "removeChild(x)" e com "remove()"
+        <br />
+        <br />
+        <div>
+            <i id="p1">
+                <b>1º elemento filho vai ser removido ao click</b>
+                <p>2º elemento filho vai ser removido ao click (outra forma)</p>
+            </i>
+            <i id="p2">esse é outro paragrafo</i>
+        </div>
+        <br />
+        <input type="button" name="submit" value="Remover" onclick="removeEl()">
+
+        <script language="javascript">
+            function removeEl() {
+                document.querySelector("#p1 b").remove();
+
+                var pai = document.querySelector("#p1");
+                var filho2 = document.querySelector("#p1 p");
+                pai.removeChild(filho2);
+            }
+        </script>
+    </section>
+
+    <section>
+        <b>Replacing Elements</b>
+        <br /> Ao click, será substituido o filho do paragrafo 02 por um novo paragrafo em uma tag PAI já existente no
+        html.
+        <br /> Será criado novo elemento e novo texto e adicionado ao paragrafo 2.
+        <br />
+        <br />
+        Duas formas de fazer com: "innerHTML" e com "createElement + createTextNode + appendChild + seleciona o pai eo
+        filho e adiciona no replaceChild(x)"
+        <div id="replace">
+            <p>Paragrafo 01.</p>
+            <p>Paragrafo 02, esse vai ser substituido</p>
+            <p>Paragrafo 03, esse vai ser substituido (forma diferente)</p>
+        </div>
+        <input type="button" name="submit" value="substituir" onclick="funcReplacing()">
+
+        <script language="javascript">
+            function funcReplacing() {
+                document.querySelectorAll("#replace p")[1].innerHTML = "Esse é o novo texto"
+
+                var filhonovo = document.createElement("p");
+                var textonono = document.createTextNode("Esse é o novo texto (outra forma)");
+                filhonovo.appendChild(textonono);
+
+                var pai = document.getElementById("replace");
+                var filho = document.querySelectorAll("#replace p")[2];
+
+                pai.replaceChild(filhonovo, filho);
+            }
+        </script>
+    </section>
+</body>
+
+</html>

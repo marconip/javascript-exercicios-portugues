@@ -1,0 +1,177 @@
+<!doctype html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+
+<body>
+    <h1>Data Atributes</h1>
+    <b>Pega atributos de "Data" no html e interage com o Javascript para algum resultado.</b>
+    <br />
+    <br />
+
+    <section>
+        <b>Comando onclick em cada linha do html, alerta o animal clicado e o tipo que ele é (usa o "getAttribute").
+        </b>
+        <p>Click on a species to see what type it is:</p>
+        <ul id="especies">
+            <li onclick="showDetails(this)" data-animal-type="bird">Owl</li>
+            <li onclick="showDetails(this)" data-animal-type="fish">Salmon</li>
+            <li onclick="showDetails(this)" data-animal-type="spider">Tarantula</li>
+        </ul>
+
+        <script>
+            function showDetails(cadaum) {
+                var pegadata = cadaum.getAttribute("data-animal-type");
+                alert(cadaum.innerHTML + " é um " + pegadata);
+            };
+        </script>
+    </section>
+
+    <section>
+        <b>data com duas palavras - Seleciona de uma única vez toda a lista e adiciona o onclick para cada um </b>
+        <p>Clique no nome abaixo para ver a especie:</p>
+        <ul>
+            <li data-animal-type="Passaro" class="read">Coruja</li>
+            <li data-animal-type="Peixe" class="read">Tubarão</li>
+            <li data-animal-type="Inseto" class="read">Barata</li>
+        </ul>
+        Você clicou em:
+        <i id="demo"></i>
+
+        <script>
+            var cadalinha = document.querySelectorAll(".read");
+
+            cadalinha.forEach(function (cl) {
+                cl.onclick = function () {
+                    //var meuAtributo = this.getAttribute("data-animal-type"); OUTRA MANEIRA DE ESCREVER
+                    document.getElementById("demo").innerHTML = cl.innerHTML + " que é " + cl.dataset.animalType;
+                }
+            });
+        </script>
+    </section>
+
+    <section>
+        <b>Show Hide usando if else. Seleciona de uma única vez toda a lista e adiciona o onclick para cada um, a
+            resposta
+            ao lado é adicionando na próxima tag html com "nextElementSibling".
+        </b>
+        <p>Click in the word to see the translate</p>
+
+        <span data-translate="Luta, grande esforço" class="eng">struggles</span>
+        <i></i>
+        <br />
+        <span data-translate="Acrescenta" class="eng">append</span>
+        <i></i>
+        <br />
+        <span data-translate="Procurar, Buscar" class="eng">seek</span>
+        <i></i>
+
+        <script>
+            var cadaelemento = document.querySelectorAll(".eng");
+            cadaelemento.forEach(function (ce) {
+                ce.onclick = function () {
+                    if (ce.nextElementSibling.innerHTML == "") {
+                        ce.nextElementSibling.innerHTML = " = " + ce.dataset.translate;
+                    } else {
+                        ce.nextElementSibling.innerHTML = "";
+                    }
+                }
+            });
+        </script>
+    </section>
+
+    <section>
+        <b>Seleciona de uma única vez toda a lista, com if e else mostra resposta ao lado do que foi escrito no campo,
+            adicionando
+            um texto na próxima tag (com "nextElementSibling") e uma class "certo" no acerto (com "classList.add") e
+            classe "erro" para o erro. obs: remover as classes ao click (reset). </b>
+        <p></p>
+        <form>
+            xx:
+            <input type="text" name="text1" required="" data-resposta="xx" class="write">
+            <span></span>
+            <br /> aa:
+            <input type="text" name="text2" required="" data-resposta="aa" class="write">
+            <span></span>
+            <br /> qq:
+            <input type="text" name="text3" required="" data-resposta="qq" class="write">
+            <span></span>
+            <br />
+            <input type="button" name="submit" id="btn" value="Resultado" onclick="seeAnswer()">
+        </form>
+
+        <script>
+
+            function seeAnswer() {
+                var campostxt = document.querySelectorAll(".write");
+
+                campostxt.forEach(function (ca) {
+                    ca.nextElementSibling.classList.remove("certo", "erro");
+
+                    if (ca.value == ca.dataset.resposta) {
+                        ca.nextElementSibling.innerHTML = "Acertei";
+                        ca.nextElementSibling.classList.add("certo");
+                    } else if (ca.value == "") {
+                        ca.nextElementSibling.innerHTML = "Preencha aqui";
+                    } else {
+                        ca.nextElementSibling.innerHTML = "Errei";
+                        ca.nextElementSibling.classList.add("erro");
+                    }
+                });
+            }
+        </script>
+    </section>
+
+    <section>
+        <b>ao click, pega toda a lista e insere e retira class diferentes para cada item</b>
+        <p class="click" data-class="mystyle01">This is foo</p>
+        <p class="click" data-class="mystyle02">This foo</p>
+        <p class="click" data-class="mystyle03">This</p>
+
+        <script type="text/javascript">
+            var elementos = document.querySelectorAll(".click");
+
+            elementos.forEach(function (el) {
+                el.onclick = function () {
+                    this.classList.toggle(el.dataset.class);
+                }
+            }); 
+        </script>
+    </section>
+
+
+    <section>
+        <b>Seleciona de uma única vez toda a lista de imagens, duplica para outra div e mostra o titulo oculto.
+            Clicando
+            no elemento duplicado, oculta novamente.</b>
+        <p>Clique na imagem para ver e saber o nome</p>
+
+        <div style="display: flex;justify-content: space-between;">
+            <div>
+                <img src="image/ironman_I.png" class="suit" data-mark="Mark I The first">
+                <img src="image/ironman_II.png" class="suit" data-mark="Mark II prototype">
+                <img src="image/ironman_III.png" class="suit" data-mark="Mark III New layout">
+            </div>
+            <div id="duplicado" style="display:none" onclick="this.style.display='none'"></div>
+        </div>
+
+        <script>
+            var image = document.querySelectorAll(".suit");
+            var duplic = document.getElementById("duplicado");
+
+            image.forEach(function (im) {
+                im.onclick = function () {
+                    duplic.style.display = "block";
+                    duplic.innerHTML = "<img src= " + im.src + " >" + im.dataset.mark;
+                }
+            }); 
+        </script>
+    </section>
+
+</body>
+
+</html>
