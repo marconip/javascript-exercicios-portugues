@@ -84,65 +84,6 @@
         </script>
     </section>
 
-    <section>
-        <b>Seleciona de uma única vez toda a lista, com if e else mostra resposta ao lado do que foi escrito no campo,
-            adicionando
-            um texto na próxima tag (com "nextElementSibling") e uma class "certo" no acerto (com "classList.add") e
-            classe "erro" para o erro. obs: remover as classes ao click (reset). </b>
-        <p></p>
-        <form>
-            xx:
-            <input type="text" name="text1" required="" data-resposta="xx" class="write">
-            <span></span>
-            <br /> aa:
-            <input type="text" name="text2" required="" data-resposta="aa" class="write">
-            <span></span>
-            <br /> qq:
-            <input type="text" name="text3" required="" data-resposta="qq" class="write">
-            <span></span>
-            <br />
-            <input type="button" name="submit" id="btn" value="Resultado" onclick="seeAnswer()">
-        </form>
-
-        <script>
-
-            function seeAnswer() {
-                var campostxt = document.querySelectorAll(".write");
-
-                campostxt.forEach(function (ca) {
-                    ca.nextElementSibling.classList.remove("certo", "erro");
-
-                    if (ca.value == ca.dataset.resposta) {
-                        ca.nextElementSibling.innerHTML = "Acertei";
-                        ca.nextElementSibling.classList.add("certo");
-                    } else if (ca.value == "") {
-                        ca.nextElementSibling.innerHTML = "Preencha aqui";
-                    } else {
-                        ca.nextElementSibling.innerHTML = "Errei";
-                        ca.nextElementSibling.classList.add("erro");
-                    }
-                });
-            }
-        </script>
-    </section>
-
-    <section>
-        <b>ao click, pega toda a lista e insere e retira class diferentes para cada item</b>
-        <p class="click" data-class="mystyle01">This is foo</p>
-        <p class="click" data-class="mystyle02">This foo</p>
-        <p class="click" data-class="mystyle03">This</p>
-
-        <script type="text/javascript">
-            var elementos = document.querySelectorAll(".click");
-
-            elementos.forEach(function (el) {
-                el.onclick = function () {
-                    this.classList.toggle(el.dataset.class);
-                }
-            }); 
-        </script>
-    </section>
-
 
     <section>
         <b>Seleciona de uma única vez toda a lista de imagens, duplica para outra div e mostra o titulo oculto.
@@ -152,23 +93,82 @@
 
         <div style="display: flex;justify-content: space-between;">
             <div>
-                <img src="image/ironman_I.png" class="suit" data-mark="Mark I The first">
-                <img src="image/ironman_II.png" class="suit" data-mark="Mark II prototype">
-                <img src="image/ironman_III.png" class="suit" data-mark="Mark III New layout">
+                <img src="image/grey-hulk.gif" class="marvel" data-mark="Hulk Cinza">
+                <img src="image/red-hulk.gif" class="marvel" data-mark="Hulk Vermelho">
+                <img src="image/green-hulk.gif" class="marvel" data-mark="Hulk Verde">
             </div>
-            <div id="duplicado" style="display:none" onclick="this.style.display='none'"></div>
+            <div id="duplicado" style="display:none" onclick="this.style.display='none'"> </div>
         </div>
 
         <script>
-            var image = document.querySelectorAll(".suit");
+            var image = document.querySelectorAll(".marvel");
             var duplic = document.getElementById("duplicado");
 
             image.forEach(function (im) {
                 im.onclick = function () {
                     duplic.style.display = "block";
-                    duplic.innerHTML = "<img src= " + im.src + " >" + im.dataset.mark;
+                    duplic.innerHTML = "<img src= " + im.src + " > <br/>" + im.dataset.mark;
                 }
             }); 
+        </script>
+    </section>
+
+
+    <section>
+        <b>Pega todos data atributo e responde ao que segue igual digitado </b>
+        <br /><br />
+        Escreva "data Attributes" em cada input. Pega cada "data" com "forEach".
+        Cria variável para "nextElementSibling".
+        Cria if, else if, else, com "dataset..." para dar as respostas e criar class no próximo elemento html
+        elemento.
+        Cria um loop para os acertos e erros para dar resposta na tela.
+        <br /><br />
+        Escreva a resposta conforme a palavra ao lado do input. Cria função que pega todos os inputs.
+
+        <br /><br />
+        <form>
+            red: <input type="text" name="red" class="write" data-resposta="red"> <span></span>
+            <br />
+            pink: <input type="text" name="pink" class="write" data-resposta="pink"> <span></span>
+            <br />
+            blue: <input type="text" name="blue" class="write" data-resposta="blue"> <span></span>
+            <br />
+            gray: <input type="text" name="gray" class="write" data-resposta="gray"> <span></span>
+            <br /><br />
+            <input type="button" name="submit" value="Resultado" onclick="funcResposta()">
+            <br />
+            <br />
+            <b id="contagem"></b>
+        </form>
+
+        <script>
+            function funcResposta() {
+                var valores = document.querySelectorAll(".write");
+
+                valores.forEach(function (item) {
+                    var proximo = item.nextElementSibling;
+                    proximo.classList.remove("active01", "active02", "active03");
+
+                    if (item.value == item.dataset.resposta) {
+                        proximo.classList.add("active02");
+                        proximo.innerHTML = "Certo";
+                    } else if (item.value == "") {
+                        proximo.classList.add("active03");
+                        proximo.innerHTML = "Não respondido";
+                    } else {
+                        proximo.classList.add("active01");
+                        proximo.innerHTML = "Errado";
+                    }
+                });
+
+                var erradas = document.getElementsByClassName("active01");
+                var certas = document.getElementsByClassName("active02");
+
+                for (c = 0; c < certas.length; c++);
+                for (e = 0; e < erradas.length; e++);
+
+                document.querySelector("#contagem").innerHTML = e + " Erros" + "<br/>" + c + " Acertos"
+            }
         </script>
     </section>
 

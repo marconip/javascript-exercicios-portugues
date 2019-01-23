@@ -124,14 +124,17 @@ ul li:hover {
 
 .active01 {
     background: red;
+    color: darkred;
 }
 
 .active02 {
-    background: green
+    background: green;
+    color: darkgreen;
 }
 
 .active03 {
     background: blue;
+    color: darkblue;
 }
 
 /**** img-zoom-galeria ****/
