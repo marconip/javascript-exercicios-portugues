@@ -65,6 +65,27 @@
 		</script>
 	</section>
 
+
+	<section>
+		<b>Tipo Toggle Hide and Show - if else Statement</b>
+		<br /><br />
+		<input type="button" value="Esconder ou Exibir" onclick="Funcshowhide()">
+		<br /><br />
+		<div class="div">Esse é um elemento DIV </div>
+
+		<script>
+			function Funcshowhide() {
+				var este = document.querySelector(".div");
+				if (este.style.display === "none") {
+					este.style.display = "block";
+				} else {
+					este.style.display = "none";
+				}
+			}
+		</script>
+	</section>
+
+
 	<section>
 		<b>Conditionals - if else if else Statement</b>
 		<br /> Selecione um curso:
@@ -106,7 +127,7 @@
 			<b id="demo"></b>
 		</form>
 		<p>JS: escreva uma mês para cada número como resposta é uma resposta para número errado ou campo vazio.</p>
-		
+
 		<script language="javascript">
 			function validar1() {
 				var numeromeses = document.getElementById("myInput").value;
@@ -163,32 +184,32 @@
 
 		<p>JS: escreva para cada 3 meses uma estação do ano é uma resposta para número errado ou campo vazio.</p>
 		<script language="javascript">
-			function validar2(){
+			function validar2() {
 				var mes = document.getElementById("fmes").value;
 
-				switch (mes){
+				switch (mes) {
 					case "janeiro":
 					case "fevereiro":
 					case "março":
-					responder = "Verão";
-					break;
+						responder = "Verão";
+						break;
 					case "abril":
 					case "maio":
 					case "junho":
-					responder = "Outono";
-					break;
+						responder = "Outono";
+						break;
 					case "julho":
 					case "agosto":
 					case "setembro":
-					responder = "Inverno";
-					break;
+						responder = "Inverno";
+						break;
 					case "outubro":
 					case "novembro":
 					case "dezembro":
-					responder = "Primavera";
-					break;
+						responder = "Primavera";
+						break;
 					default:
-					responder = "Escreva o mês tudo em minúsculo";
+						responder = "Escreva o mês tudo em minúsculo";
 				}
 				alert(responder);
 			}

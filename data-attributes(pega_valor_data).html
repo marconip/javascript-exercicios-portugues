@@ -14,73 +14,80 @@
     <br />
 
     <section>
-        <b>Comando onclick em cada linha do html, alerta o animal clicado e o tipo que ele é (usa o "getAttribute").
-        </b>
-        <p>Click on a species to see what type it is:</p>
-        <ul id="especies">
-            <li onclick="showDetails(this)" data-animal-type="bird">Owl</li>
-            <li onclick="showDetails(this)" data-animal-type="fish">Salmon</li>
-            <li onclick="showDetails(this)" data-animal-type="spider">Tarantula</li>
+        <b>getAttribute(x) - Esse comando pega qualquer atributo dentro de tag</b>
+        <br /><br />Cria um onclick em cada linha do html. Fazer uma função pegando os nomes das "data" usando
+        "getAttribute".
+        Alerta o nome do animal dizendo a especie dele.
+        <p>Clique no nome abaixo para ALERTAR a especie:</p>
+        <ul>
+            <li onclick="showDetails(this)" data-animal-type="Pássaro">Coruja</li>
+            <li onclick="showDetails(this)" data-animal-type="Peixe">Baléia</li>
+            <li onclick="showDetails(this)" data-animal-type="Aranha">Tarantula</li>
         </ul>
 
         <script>
             function showDetails(cadaum) {
-                var pegadata = cadaum.getAttribute("data-animal-type");
-                alert(cadaum.innerHTML + " é um " + pegadata);
+                var responde = cadaum.getAttribute("data-animal-type");
+                alert(cadaum.innerHTML + " é " + responde);
             };
         </script>
     </section>
 
     <section>
-        <b>data com duas palavras - Seleciona de uma única vez toda a lista e adiciona o onclick para cada um </b>
+        <b>forEach - Pega lista de elementos e seus data atributo</b>
+        <br /><br />
+        Cria uma variável pegando a lista de elementos. Cria um "forEach" e faz uma função de click pegando os nomes
+        das "data".
+        Declara escrevendo o nome do animal dizendo a especie dele.
         <p>Clique no nome abaixo para ver a especie:</p>
         <ul>
-            <li data-animal-type="Passaro" class="read">Coruja</li>
-            <li data-animal-type="Peixe" class="read">Tubarão</li>
-            <li data-animal-type="Inseto" class="read">Barata</li>
+            <li data-animal-tipo="Passaro" class="read">Águia</li>
+            <li data-animal-tipo="Peixe" class="read">Tubarão</li>
+            <li data-animal-tipo="Inseto" class="read">Formiga</li>
         </ul>
         Você clicou em:
         <i id="demo"></i>
 
         <script>
-            var cadalinha = document.querySelectorAll(".read");
+            var lista = document.querySelectorAll(".read");
 
-            cadalinha.forEach(function (cl) {
-                cl.onclick = function () {
-                    //var meuAtributo = this.getAttribute("data-animal-type"); OUTRA MANEIRA DE ESCREVER
-                    document.getElementById("demo").innerHTML = cl.innerHTML + " que é " + cl.dataset.animalType;
+            lista.forEach(function (esse) {
+                esse.onclick = function () {
+                    document.getElementById("demo").innerHTML = esse.innerHTML + " é " + esse.dataset.animalTipo;
                 }
             });
         </script>
     </section>
 
     <section>
-        <b>Show Hide usando if else. Seleciona de uma única vez toda a lista e adiciona o onclick para cada um, a
-            resposta
-            ao lado é adicionando na próxima tag html com "nextElementSibling".
-        </b>
-        <p>Click in the word to see the translate</p>
+        <b>Tipo toggle - Data Atributo com uma só palavra</b>
+        <br /><br />
+        Escreva "data Attributes" em cada input. Pega cada "data" com "forEach"..
+        Cria if, else if, else, com "dataset..." para dar as respostas e criar class no próximo elemento html com
+        "nextElementSibling".
+        <br /><br />
+        <p>Click clique na palavra para ver a tradução</p>
 
-        <span data-translate="Luta, grande esforço" class="eng">struggles</span>
+        <a href="javascript:void(0)" data-translate="Luta, Grande esforço" class="eng">Struggle</a>
         <i></i>
         <br />
-        <span data-translate="Acrescenta" class="eng">append</span>
+        <a href="javascript:void(0)" data-translate="Acrescenta" class="eng">Append</a>
         <i></i>
         <br />
-        <span data-translate="Procurar, Buscar" class="eng">seek</span>
+        <a href="javascript:void(0)" data-translate="Declaração" class="eng">Statement</a>
         <i></i>
 
         <script>
-            var cadaelemento = document.querySelectorAll(".eng");
-            cadaelemento.forEach(function (ce) {
-                ce.onclick = function () {
-                    if (ce.nextElementSibling.innerHTML == "") {
-                        ce.nextElementSibling.innerHTML = " = " + ce.dataset.translate;
+            var palavra = document.querySelectorAll(".eng");
+            palavra.forEach(function (este) {
+                este.onclick = function () {
+                    if (este.nextElementSibling.innerHTML == "") {
+                        este.nextElementSibling.innerHTML = este.dataset.translate;
                     } else {
-                        ce.nextElementSibling.innerHTML = "";
+                        este.nextElementSibling.innerHTML = "";
                     }
                 }
-            });
+            })
         </script>
     </section>
 
@@ -93,23 +100,23 @@
 
         <div style="display: flex;justify-content: space-between;">
             <div>
-                <img src="image/grey-hulk.gif" class="marvel" data-mark="Hulk Cinza">
-                <img src="image/red-hulk.gif" class="marvel" data-mark="Hulk Vermelho">
-                <img src="image/green-hulk.gif" class="marvel" data-mark="Hulk Verde">
+                <img src="image/grey-hulk.gif" class="marvel" data-heroi="Hulk Cinza">
+                <img src="image/red-hulk.gif" class="marvel" data-heroi="Hulk Vermelho">
+                <img src="image/green-hulk.gif" class="marvel" data-heroi="Hulk Verde">
             </div>
             <div id="duplicado" style="display:none" onclick="this.style.display='none'"> </div>
         </div>
 
         <script>
-            var image = document.querySelectorAll(".marvel");
-            var duplic = document.getElementById("duplicado");
+            var imagens = document.querySelectorAll(".marvel");
+            var mostrar = document.getElementById("duplicado");
 
-            image.forEach(function (im) {
-                im.onclick = function () {
-                    duplic.style.display = "block";
-                    duplic.innerHTML = "<img src= " + im.src + " > <br/>" + im.dataset.mark;
+            imagens.forEach(function (aqui) {
+                aqui.onclick = function () {
+                    mostrar.style.display = "block";
+                    mostrar.innerHTML = "<img src=" + aqui.src + "> <br/>" + aqui.dataset.heroi;
                 }
-            }); 
+            });
         </script>
     </section>
 
@@ -123,7 +130,7 @@
         elemento.
         Cria um loop para os acertos e erros para dar resposta na tela.
         <br /><br />
-        Escreva a resposta conforme a palavra ao lado do input. Cria função que pega todos os inputs.
+        <p>Escreva a resposta conforme a palavra ao lado do input. Cria função que pega todos os inputs.</p>
 
         <br /><br />
         <form>
