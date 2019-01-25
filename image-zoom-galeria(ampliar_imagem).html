@@ -14,7 +14,7 @@
     <section>
         <b>Fecha quando clicar em qualquer lugar</b>
         modal simples - ao click, pega lista de imagens e amplia, fechar clicado em qualquer lugar
-        <br/><br/>  
+        <br /><br />
         <img src="image/img01.jpg" class="clickimg myImg">
         <img src="image/img02.jpg" class="clickimg myImg">
         <img src="image/img03.jpg" class="clickimg myImg">
@@ -25,8 +25,7 @@
             </div>
         </div>
 
-        <!-- Optional JavaScript -->
-        <script type="text/javascript">
+        <script>
             var cliq = document.querySelectorAll(".clickimg");
             cliq.forEach(function (img) {
                 img.onclick = function () {
@@ -41,7 +40,7 @@
     <section>
         <b>Fecha com click no "X"</b>
         ao click, pega lista de imagens e amplia, mostra alt como titulo e só fecha no "X"
-        <br/><br/>
+        <br /><br />
         <img class="myImg gallery" src="image/img01.jpg" alt="Imagem 01">
         <img class="myImg gallery" src="image/img02.jpg" alt="Imagem 02">
         <img class="myImg gallery" src="image/img03.jpg" alt="Imagem 03">
@@ -52,7 +51,7 @@
             <div id="caption"></div>
         </div>
 
-        <script type="text/javascript">
+        <script>
             var modal = document.getElementById('myModal');
             var modalImg = document.getElementById("img02");
             var captionText = document.getElementById("caption");
@@ -68,8 +67,8 @@
             span.onclick = function () {
                 modal.style.display = "none";
             }
-              //https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img
         </script>
+        <!-- https://www.w3schools.com/howto/tryit.asp?filename=tryhow_css_modal_img -->
     </section>
 </body>
 

@@ -8,7 +8,7 @@
     <title>JS tutorial practicing</title>
 </head>
 
-<body style="background: #f1f1f1">
+<body>
     <h1>DOM - Adiciona classes em diferentes modos</h1>
 
     <section>
@@ -35,7 +35,7 @@
 
     <section>
         <b>Adiciona classe ao click e retira com outro click.</b>
-        <br /> Ao click, pega toda a lista com "forEach" e insere e retira a mesma class (active), para cada
+        <br /> Ao click, pega toda a lista com "forEach" e insere e retira a mesma class (actives), para cada
         item com
         "classList.toggle"
         <br />
@@ -52,7 +52,7 @@
             var todaslistas = document.querySelectorAll("#myDIVs .btn");
             todaslistas.forEach(function (cadaelemento) {
                 cadaelemento.onclick = function () {
-                    this.classList.toggle("active");
+                    this.classList.toggle("actives");
                 }
             }); 
         </script>
@@ -70,11 +70,11 @@
         <br />
         <br />
         <div id="mymenu">
-            <button class="btn">1</button>
-            <button class="btn">2</button>
-            <button class="btn">3</button>
-            <button class="btn">4</button>
-            <button class="btn">5</button>
+            <button class="btn ">1</button>
+            <button class="btn ">2</button>
+            <button class="btn ">3</button>
+            <button class="btn ">4</button>
+            <button class="btn ">5</button>
         </div>
 
         <script>
@@ -86,7 +86,7 @@
                     if (botoes.length > 0) {
                         botoes[0].className = botoes[0].className.replace("active", "");
                     }
-                    this.className += " active";
+                    this.className += "active";
                 };
             });
         </script>

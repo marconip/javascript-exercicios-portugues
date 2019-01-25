@@ -116,7 +116,7 @@ ul li:hover {
     cursor: pointer;
 }
 
-.active,
+.active, .actives, 
 .ativo {
     background-color: #000;
     color: white;

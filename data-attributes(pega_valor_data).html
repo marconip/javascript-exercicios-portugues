@@ -7,11 +7,10 @@
     <link rel='stylesheet' href='css/style.css' type='text/css' />
     <title>JS tutorial practicing</title>
 
+    <style>#duplicado img {transform: scaleX(-1)}</style>
+
 <body>
     <h1>Data Atributes</h1>
-    <b>Pega atributos de "Data" no html e interage com o Javascript para algum resultado.</b>
-    <br />
-    <br />
 
     <section>
         <b>getAttribute(x) - Esse comando pega qualquer atributo dentro de tag</b>
@@ -26,9 +25,9 @@
         </ul>
 
         <script>
-            function showDetails(cadaum) {
-                var responde = cadaum.getAttribute("data-animal-type");
-                alert(cadaum.innerHTML + " é " + responde);
+            function showDetails(este) {
+                var item = este.getAttribute("data-animal-type");
+                alert("A especie de " + este.innerHTML + " é " + item);
             };
         </script>
     </section>
@@ -50,20 +49,19 @@
 
         <script>
             var lista = document.querySelectorAll(".read");
-
             lista.forEach(function (esse) {
                 esse.onclick = function () {
-                    document.getElementById("demo").innerHTML = esse.innerHTML + " é " + esse.dataset.animalTipo;
+                    document.getElementById("demo").innerHTML = esse.innerHTML + " é = a " + esse.dataset.animalTipo;
                 }
             });
         </script>
     </section>
 
     <section>
-        <b>Tipo toggle - Data Atributo com uma só palavra</b>
+        <b>Tipo um 'toggle' - Data Atributo com uma só palavra</b>
         <br /><br />
         Escreva "data Attributes" em cada input. Pega cada "data" com "forEach"..
-        Cria if, else if, else, com "dataset..." para dar as respostas e criar class no próximo elemento html com
+        Cria if, else, com "dataset..." para dar as respostas e criar class no próximo elemento html com
         "nextElementSibling".
         <br /><br />
         <p>Click clique na palavra para ver a tradução</p>
@@ -78,45 +76,45 @@
         <i></i>
 
         <script>
-            var palavra = document.querySelectorAll(".eng");
-            palavra.forEach(function (este) {
-                este.onclick = function () {
-                    if (este.nextElementSibling.innerHTML == "") {
-                        este.nextElementSibling.innerHTML = este.dataset.translate;
+            var listas = document.querySelectorAll(".eng");
+            listas.forEach(function (aqui) {
+                aqui.onclick = function () {
+                    if (this.nextElementSibling.innerHTML == "") {
+                        this.nextElementSibling.innerHTML = aqui.dataset.translate;
                     } else {
-                        este.nextElementSibling.innerHTML = "";
+                        this.nextElementSibling.innerHTML = "";
                     }
                 }
-            })
+            });
         </script>
     </section>
 
 
     <section>
-        <b>Seleciona de uma única vez toda a lista de imagens, duplica para outra div e mostra o titulo oculto.
-            Clicando
-            no elemento duplicado, oculta novamente.</b>
+        <b>Duplicando img, titulo e data atributo</b>
+        <br /><br />Pega cada linha de imagem com "forEach". Cria função de click e ao clicar libera a 'div' oculta,
+        depois mostra dentro dessa 'div' a tag da imagem clicada mais o texto data e o titulo da imagem.
         <p>Clique na imagem para ver e saber o nome</p>
 
         <div style="display: flex;justify-content: space-between;">
             <div>
-                <img src="image/grey-hulk.gif" class="marvel" data-heroi="Hulk Cinza">
-                <img src="image/red-hulk.gif" class="marvel" data-heroi="Hulk Vermelho">
-                <img src="image/green-hulk.gif" class="marvel" data-heroi="Hulk Verde">
+                <img src="image/grey-hulk.gif" title="o cinzento" class="marvel" data-heroi="Hulk Cinza">
+                <img src="image/red-hulk.gif" title="o vermelhão" class="marvel" data-heroi="Hulk Vermelho">
+                <img src="image/green-hulk.gif" title="o verdão" class="marvel" data-heroi="Hulk Verde">
             </div>
-            <div id="duplicado" style="display:none" onclick="this.style.display='none'"> </div>
+            <div id="duplicado" style="display:none;" onclick="this.style.display='none'"> </div>
         </div>
 
         <script>
             var imagens = document.querySelectorAll(".marvel");
             var mostrar = document.getElementById("duplicado");
 
-            imagens.forEach(function (aqui) {
-                aqui.onclick = function () {
+            imagens.forEach(function (img) {
+                img.addEventListener("click", function () {
                     mostrar.style.display = "block";
-                    mostrar.innerHTML = "<img src=" + aqui.src + "> <br/>" + aqui.dataset.heroi;
-                }
-            });
+                    mostrar.innerHTML = "<img src=" + this.src + "> <br/>" + img.dataset.heroi + " " + this.title;
+                })
+            })
         </script>
     </section>
 
@@ -126,8 +124,8 @@
         <br /><br />
         Escreva "data Attributes" em cada input. Pega cada "data" com "forEach".
         Cria variável para "nextElementSibling".
-        Cria if, else if, else, com "dataset..." para dar as respostas e criar class no próximo elemento html
-        elemento.
+        Cria if, else if, else, com "dataset..." para dar as respostas.
+        Criar class no próximo elemento html com nome 'active02' para certo e 'active01' para errado.
         Cria um loop para os acertos e erros para dar resposta na tela.
         <br /><br />
         <p>Escreva a resposta conforme a palavra ao lado do input. Cria função que pega todos os inputs.</p>
@@ -152,33 +150,30 @@
             function funcResposta() {
                 var valores = document.querySelectorAll(".write");
 
-                valores.forEach(function (item) {
-                    var proximo = item.nextElementSibling;
-                    proximo.classList.remove("active01", "active02", "active03");
+                valores.forEach(function (valor) {
+                    var elemento2 = valor.nextElementSibling;
+                    elemento2.classList.remove("active02", "active01");
 
-                    if (item.value == item.dataset.resposta) {
-                        proximo.classList.add("active02");
-                        proximo.innerHTML = "Certo";
-                    } else if (item.value == "") {
-                        proximo.classList.add("active03");
-                        proximo.innerHTML = "Não respondido";
+                    if (valor.value == valor.dataset.resposta) {
+                        elemento2.innerHTML = "CERTO";
+                        elemento2.classList.add("active02");
+                    } else if (valor.value == "") {
+                        elemento2.innerHTML = "NÃO RESPONDIDO";
                     } else {
-                        proximo.classList.add("active01");
-                        proximo.innerHTML = "Errado";
+                        elemento2.innerHTML = "ERRADO";
+                        elemento2.classList.add("active01");
                     }
                 });
 
-                var erradas = document.getElementsByClassName("active01");
-                var certas = document.getElementsByClassName("active02");
+                var certo = document.getElementsByClassName("active02");
+                var errado = document.getElementsByClassName("active01");
 
-                for (c = 0; c < certas.length; c++);
-                for (e = 0; e < erradas.length; e++);
+                for (c = 0; c < certo.length; c++);
+                for (e = 0; e < errado.length; e++);
 
-                document.querySelector("#contagem").innerHTML = e + " Erros" + "<br/>" + c + " Acertos"
+                document.getElementById("contagem").innerHTML = c + " acertos <br/>" + e + " erros";
             }
         </script>
     </section>
-
 </body>
-
 </html>

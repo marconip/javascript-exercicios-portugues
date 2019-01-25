@@ -1,69 +1,71 @@
-<!DOCTYPE html>
-<html>
-<link rel='stylesheet' href='css/style.css' type='text/css' />
+<!doctype html>
+<html lang="pt-br">
 
-
-
-
-
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link rel='stylesheet' href='css/style.css' type='text/css' />
+    <title>JS tutorial practicing</title>
+</head>
 
 <body>
 
-    <h2>String Methods - armazena e manipula</h2>
+    <h1>String Methods - Replacing string content</h1>
 
     <section>
         <b>Replacing String Content - Mudar apenas uma palavra escolhida, no texto, sendo case sensitive.</b>
+        <br /><br />
+        Cria uma variável pegando os textos onde tem a palavra que vai mudar.
+        Cria variável para fazer a mudança no texto com a 1º variavel e replace(x).
+        Declara a mudança no texto com "innerHTML";
 
-        <p>Só muda o primeiro atributo palavra escolhida com mesmo nome.</p>
+        <p id="p1">A palavra que vai trocar será essa: "<b>mudar</b>". Enquanto existir a palavra "mudar" vai sendo
+            trocada ao click.
+            <br />A palavra que vai trocar será essa: "<b>mudar</b>". Enquanto existir a palavra "mudar" vai sendo
+            trocada ao click.</p>
 
-        <p id="p1">A palavra que vi trocar será essa: "
-            <b>mudar</b>" essa outra com mesmo nome mudar não troca.</p>
-
-        <button onclick="myFunction()">trocar para HTML</button>
+        <button onclick="myFunction()">trocar para 'foi mudado'</button>
 
         <script>
             function myFunction() {
-                var mudar = document.getElementById("p1").innerHTML;
-                var novotxt = mudar.replace("mudar", "HTML");
-                document.getElementById("p1").innerHTML = novotxt;
-            };
+                var pegatxt = document.getElementById("p1");
+                var mudar = pegatxt.innerHTML.replace("mudar", "foi mudado");
+                pegatxt.innerHTML = mudar;
+            }
         </script>
     </section>
 
+
     <section>
-        <b>Replacing Case Sensitive - Mudar palavra case sensitive com: /xxx/i.</b>
+        <b>Replacing Case Sensitive - Mudar palavra tanto maiúscula quanto minuscula: "/xxx/i".</b>
+        <br /><br />Escrever o JS sem aspas.
+        <p id="p2">A palavra que vi trocar será essa: "<b>MUDAR</b>".</p>
 
-        <p>Escrever o JS sem aspas.</p>
-
-        <p id="p2">A palavra que vi trocar será essa: "
-            <b>MUDAR</b>".</p>
-
-        <button onclick="myFunct()">trocar para HTML 02</button>
+        <button onclick="myFunct()">trocar para 'Mudado'</button>
 
         <script>
             function myFunct() {
-                var mudar = document.getElementById("p2").innerHTML;
-                var novotxt = mudar.replace(/mudar/i, "HTML 02");
-                document.getElementById("p2").innerHTML = novotxt;
-            };
+                var texto = document.getElementById("p2");
+                var trocar = texto.innerHTML.replace(/mudar/i, "Mudado");
+                texto.innerHTML = trocar;
+            }
         </script>
     </section>
 
+
     <section>
-        <b>Replacing as mesmas palavras - Mudar apenas as palavras com mesmo nome. mudar com: /xxx/g</b>
-
-        <p id="p3">A palavra que vai trocar será essa: "
-            <b>nova</b>" essa outra com mesmo nome
-            <b>nova</b> troca também.</p>
-
-        <button onclick="myFun()">trocar para HTML 3</button>
+        <b>Replacing as mesmas palavras - Mudar de uma só vez todas as palavras com mesmo nome, com: "/xxx/g"</b>
+        <p id="p3">A palavra que vai trocar será essa: "<b>nova</b>" essa outra com mesmo nome <b>nova</b> troca
+            também.
+            A palavra que vai trocar será essa: "<b>nova</b>" essa outra com mesmo nome <b>nova</b> troca também.</p>
+        <button onclick="myFun()">trocar para 'tudo trocado'</button>
 
         <script>
             function myFun() {
-                var mudar = document.getElementById("p3").innerHTML;
-                var novotxt = mudar.replace(/nova/g, "HTML 3");
-                document.getElementById("p3").innerHTML = novotxt;
-            };
+                var paragrafo = document.querySelector("#p3");
+                var substituir = paragrafo.innerHTML.replace(/nova/g, "tudo trocado");
+                paragrafo.innerHTML = substituir;
+            }
         </script>
     </section>
 </body>
