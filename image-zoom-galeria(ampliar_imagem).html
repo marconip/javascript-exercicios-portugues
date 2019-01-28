@@ -9,10 +9,10 @@
 </head>
 
 <body>
-    <h1>Galeria de imagem </h1>
+    <h1>Galeria de imagem (nescessário CSS)</h1>
 
     <section>
-        <b>Fecha quando clicar em qualquer lugar</b>
+        <b>Fecha quando clicar em qualquer lugar</b><br />
         modal simples - ao click, pega lista de imagens e amplia, fechar clicado em qualquer lugar
         <br /><br />
         <img src="image/img01.jpg" class="clickimg myImg">
@@ -21,29 +21,30 @@
 
         <div id="modal" class="modal" onclick="this.style.display='none'">
             <div class="animate-zoom">
-                <img class="modal-content" id="img">
+                <img class="modal-content" id="img01">
             </div>
         </div>
 
         <script>
-            var cliq = document.querySelectorAll(".clickimg");
-            cliq.forEach(function (img) {
-                img.onclick = function () {
+            var imagens = document.querySelectorAll(".clickimg");
+
+            imagens.forEach(function (este) {
+                este.onclick = function () {
                     document.getElementById("modal").style.display = "block";
-                    document.getElementById("img").src = this.src;
+                    document.getElementById("img01").src = this.src;
                 }
-            });
+            })
         </script>
     </section>
 
 
     <section>
-        <b>Fecha com click no "X"</b>
+        <b>Fecha com click no "X"</b><br />
         ao click, pega lista de imagens e amplia, mostra alt como titulo e só fecha no "X"
         <br /><br />
-        <img class="myImg gallery" src="image/img01.jpg" alt="Imagem 01">
-        <img class="myImg gallery" src="image/img02.jpg" alt="Imagem 02">
-        <img class="myImg gallery" src="image/img03.jpg" alt="Imagem 03">
+        <img src="image/img01.jpg" alt="Imagem 01" class="myImg gallery">
+        <img src="image/img02.jpg" alt="Imagem 02" class="myImg gallery">
+        <img src="image/img03.jpg" alt="Imagem 03" class="myImg gallery">
 
         <div id="myModal" class="modal">
             <span class="close">&times;</span>
@@ -52,19 +53,17 @@
         </div>
 
         <script>
-            var modal = document.getElementById('myModal');
-            var modalImg = document.getElementById("img02");
-            var captionText = document.getElementById("caption");
-            var imagex = document.querySelectorAll(".gallery");
-            imagex.forEach(function (img) {
-                img.onclick = function () {
+            var imgs = document.querySelectorAll(".gallery");
+            var modal = document.getElementById("myModal");
+
+            imgs.forEach(function (esse) {
+                esse.addEventListener("click", function () {
                     modal.style.display = "block";
-                    modalImg.src = this.src;
-                    captionText.innerHTML = this.alt;
-                }
-            });
-            var span = document.getElementsByClassName("close")[0];
-            span.onclick = function () {
+                    document.getElementById("img02").src = this.src;
+                    document.getElementById("caption").innerHTML = this.alt;
+                });
+            })
+            document.querySelector(".close").onclick = function () {
                 modal.style.display = "none";
             }
         </script>
