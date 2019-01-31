@@ -12,51 +12,55 @@
     <h1>Image Slider</h1>
 
     <section>
-        <b>com Array</b>
-        Simples slider de imagens, usando array para cada url de imagem, botões voltar e próximo (sem animação).
-        <br />
-        <br />
+        <b>Com Array - Buscando imagens em pasta</b>
+        <br />Simples slider de imagens, usando array para cada url de imagem, botões voltar e próximo (sem animação).
+        <br /><br />
         <div id="imgslider">
             <button onclick="voltar()"> Prev </button>
             <img id="slider" src="image/img01.jpg" />
             <button onclick="proximo()"> Next </button>
         </div>
+        <br />
+
+        <br />Cria objeto com arrays; cria variável recebe valor 0;
+        <br />Cria função para botão próximo; cria variável para tag img; Escreve variável de valor recebendo ++;
+        <br />Cria um "if" e dentro verifica a variável do valor com o objeto length;
+        <br />Resposta do "if" vai para a variável do valor; 
+        <br />Fora do "if" responde com a variável da tag img mais o "src" que recebe objeto com dentro de array a variável recebe valor;
+        <br />Cria função para botão voltar; seguir mesmos passos do botão acima mas com calculo lógico diferente. Obs
+        a variável de valor recebendo --;
 
         <script>
-            var image = [
-                "image/img01.jpg", // esse é = 0  
-                "image/img02.jpg", // esse é = 1
-                "image/img03.jpg"  // esse é = 2
+            var imagens = [
+                "image/img01.jpg",
+                "image/img02.jpg",
+                "image/img03.jpg"
             ];
             var valor = 0;
             function proximo() {
-                var slider = document.getElementById("slider");
+                var tagimg = document.getElementById("slider");
                 valor++;
-                if (valor >= image.length) {
+                if (valor >= imagens.length) {
                     valor = 0;
                 }
-                slider.src = image[valor];
+                tagimg.src = imagens[valor];
             };
             function voltar() {
-                var slider = document.getElementById("slider");
+                var tagimg = document.getElementById("slider");
                 valor--;
                 if (valor < 0) {
-                    valor = image.length - 1;
+                    valor = imagens.length - 1;
                 }
-                slider.src = image[valor];
+                tagimg.src = imagens[valor];
             };
         </script>
     </section>
 
 
     <section>
+        <!-- EXPLICAÇÃO:  https://www.w3schools.com/w3css/w3css_slideshow.asp -->
         <b>Criar slider com todas imagens no html </b>
-        <br/>cria variavel que recebe arrei 1;        
-        <br/>cria uma nome para função geral pega array
-        <br/>cria função para botão e dá um nomeX, dentro dessa função adiciona função array adiciona nomeX.
-        <br/>cria função geral com os if e loops, no loop insere style display none, fora/após o loop adiciona display block na array 1.
-        <br/>
-        <br/>
+        <br /><br />
         <div class="display-container">
             <img class="mySlides" src="image/img01.jpg">
             <img class="mySlides" src="image/img02.jpg">
@@ -65,28 +69,43 @@
             <button onclick="btn(-1)">&#10094;</button>
             <button onclick="btn(1)"> &#10095;</button>
         </div>
+        <br />
+        <br />cria variável com nome array que recebe 1;
+        <br />cria uma nome que pega entre parenteses o nome da 1º variável criada;
+        <br />cria função para botão e dá um nomeX entre parenteses, dentro dessa função adiciona o nome que pegou a 1º
+        variável criada, entre parenteses escreva a 1º variável, escreva operador "+=" e o nome que deu na função do
+        botão;
+        <br />cria função (geral), com o nome que pegou a 1º variável criada e entre parenteses da um nome (para
+        numeros de imagens que terá no html);
+        <br />cria variável que receberá as tags img;
+        <br />No Botão Passar: cria um if com os nomes entre parenteses: nome dado a função geral e nome da variável
+        das
+        img com length, a resposta mexe com a 1º variável;
+        <br />No Botão Voltar: cria um outro if com o botão passar mas com ações contraria (pensar na solução para dar
+        resposta a 1º variável);
+        <br />Cria um loop pegando a variável das tags img mais length e insere nele um estilo para sumir;
+        <br />Fora do loop, na variável das tags img e array insere -1 e um estilo para aparecer;
 
-        <script> //EXPLICAÇÃO:  https://www.w3schools.com/w3css/w3css_slideshow.asp
+        <script>
             var array = 1;
-            minhaArray(array);
-            
-            function btn(cadaclick) {
-                minhaArray(array += cadaclick)
+            variaveis(array);
+            function btn(click) {
+                variaveis(array += click);
             };
 
-            function minhaArray(valor) {
-                var slide = document.getElementsByClassName("mySlides");
+            function variaveis(valorImg) {
+                var imgs = document.getElementsByClassName("mySlides");
 
-                if (valor > slide.length) {
+                if (valorImg > imgs.length) {
                     array = 1;
                 }
-                if (valor < 1) {
-                    array = slide.length;
+                if (valorImg < 1) {
+                    array = imgs.length;
                 }
-                for (i = 0; i < slide.length; i++){
-                    slide[i].style.display = "none";
+                for (i = 0; i < imgs.length; i++) {
+                    imgs[i].style.display = "none";
                 }
-                slide[array -1].style.display = "block";
+                imgs[array - 1].style.display = "block";
             }
         </script>
     </section>
