@@ -118,100 +118,104 @@
 
 	<section>
 		<b>Conditionals - Switch</b>
+		<br />Escreva a função; Variável para receber o valor; Variável para resposta; O "switch (x)" com a variável de valor; 
+		Os "case" a resposta o "break" e o "default"; A resposta ao usuário. 
+		<br />
 		<br />
 		<form name="minhaform">
 			Digita um número para VER O MÊS:
 			<input type="number" name="omes" id="myInput" required max="12" />
 			<input type="button" name="submit" value="Mostrar Mês" onclick="validar1()">
-			<br /> <br /> Mês escolhido acima foi:
+			<br />Mês escolhido acima foi:
 			<b id="demo"></b>
+			<br /><br />
 		</form>
-		<p>JS: escreva uma mês para cada número como resposta é uma resposta para número errado ou campo vazio.</p>
 
 		<script language="javascript">
 			function validar1() {
-				var numeromeses = document.getElementById("myInput").value;
-				switch (numeromeses) {
+				var meses = document.getElementById("myInput").value;
+				var declara = "";
+				switch (meses) {
 					case "1":
-						resposta = "Janeiro";
+						declara = "janeiro";
 						break;
 					case "2":
-						resposta = "Fevereiro";
+						declara = "fevereiro";
 						break;
 					case "3":
-						resposta = "Março";
+						declara = "março";
 						break;
 					case "4":
-						resposta = "Abril";
+						declara = "abril";
 						break;
 					case "5":
-						resposta = "Maio";
+						declara = "maio";
 						break;
 					case "6":
-						resposta = "Junho";
+						declara = "junho";
 						break;
 					case "7":
-						resposta = "Julho";
+						declara = "julho";
 						break;
 					case "8":
-						resposta = "Agosto";
+						declara = "agosto";
 						break;
 					case "9":
-						resposta = "Setembro";
+						declara = "setembro";
 						break;
 					case "10":
-						resposta = "Outubro";
+						declara = "outubro";
 						break;
 					case "11":
-						resposta = "Novembro";
+						declara = "novembro";
 						break;
 					case "12":
-						resposta = "Dezembro";
+						declara = "dezembro";
 						break;
 					default:
-						resposta = "Campo vazio ou número invalido, somente de 1 à 12"
+						declara = "escreva apenas de 1 a 12";
 				}
-				document.getElementById("demo").innerHTML = resposta;
+				document.getElementById("demo").innerHTML = declara;
 			}
 		</script>
 
 		<form name="myform">
 			Escreva um mês para exibir o aleta com a ESTAÇÃO DO ANO:
 			<br />
-			<input type="text" name="fmeses" id="fmes" required />
+			<input type="text" name="fmeses" id="fmes" placeholder="ex.: janeiro" />
 			<input type="button" name="submit" value="Alerta Estação" onclick="validar2()">
 		</form>
-
-		<p>JS: escreva para cada 3 meses uma estação do ano é uma resposta para número errado ou campo vazio.</p>
+		
 		<script language="javascript">
 			function validar2() {
 				var mes = document.getElementById("fmes").value;
+				var responde = "";
 
 				switch (mes) {
 					case "janeiro":
 					case "fevereiro":
 					case "março":
-						responder = "Verão";
+						responde = "Verão";
 						break;
 					case "abril":
 					case "maio":
 					case "junho":
-						responder = "Outono";
+						responde = "Outono";
 						break;
 					case "julho":
 					case "agosto":
 					case "setembro":
-						responder = "Inverno";
+						responde = "Inverno";
 						break;
 					case "outubro":
 					case "novembro":
 					case "dezembro":
-						responder = "Primavera";
+						responde = "Primavera";
 						break;
 					default:
-						responder = "Escreva o mês tudo em minúsculo";
+						responde = "escreva em minusculo, nome completo do mês";
 				}
-				alert(responder);
+				alert(responde);
 			}
 		</script>
 	</section>

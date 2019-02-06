@@ -13,15 +13,16 @@
 
     <section id="escolhap">
         <b>Accessing an Array direto do html</b>
-        <br /> Busca todas as tags "span" e escreve a que foi escolhida, array 2 (exibe em 3seg.) usando o "setInterval".
+        <br /> Busca todas as tags "span" e escreve a que foi escolhida, array 2 (exibe em 3seg.) usando o
+        "setInterval".
         <br /><br />
         array 0 = <span>Barry</span><br />
         array 1 = <span>Allen</span><br />
         array 2 = <span>The flash</span>
         <br />
         <br />
-        <strong id="demo">Em 3 segundos aparecerá aqui...</strong>
-        
+        <strong id="demo">em 3 segundos aparecerá aqui</strong>
+
         <script>
             function minhaArray() {
                 var escolha = document.getElementsByTagName("span");
@@ -40,11 +41,11 @@
         <br /><br />
         Selecione qual super heroi o Barry Allen é? <br /><br />
 
-        <input type="radio" name="gender" class="meuscheckbox"> The Flash</label>
+        <label><input type="radio" name="gender" class="meuscheckbox"> The Flash</label>
         <br />
-        <input type="radio" name="gender" class="meuscheckbox"> He-man</label>
+        <label><input type="radio" name="gender" class="meuscheckbox"> He-man</label>
         <br />
-        <input type="radio" name="gender" class="meuscheckbox"> Batman</label>
+        <label><input type="radio" name="gender" class="meuscheckbox"> Batman</label>
         <br />
         <br />
         <input type="button" name="submit" value="Resultado" onclick="verResultado()">
@@ -54,16 +55,16 @@
         <script>
             function verResultado() {
                 setInterval(function () {
-                    var opcao = document.getElementsByClassName("meuscheckbox");
+                    var checks = document.querySelectorAll(".meuscheckbox");
                     var declara = "";
-                    if (opcao[0].checked == true) {
-                        declara = "Correto, esse é o homem mais rápido vivo";
+                    if (checks[0].checked) {
+                        declara = "Acertou!"
                     } else {
-                        declara = "Opção errado ou não houve escolha";
+                        declara = "Errou ou não respondeu, precisa ser pessoa mais rápida!"
                     }
                     document.getElementById("demo2").innerHTML = declara;
-                }, 3000)
-            };
+                }, 3000);
+            }
         </script>
     </section>
 

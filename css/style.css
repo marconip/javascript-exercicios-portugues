@@ -24,6 +24,7 @@ p {
     color: #555;
 }
 
+label:hover, 
 ul li:hover {
     cursor: pointer;
     background: #f9f9f9;
