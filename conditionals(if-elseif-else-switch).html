@@ -37,6 +37,9 @@
 	<section>
 		<b>Conditionals - if else Statement</b>
 		<br /> Insira um número para saber quem é maior entre A ou B:
+		<br/><br/>
+		Escreva o JS com duas maneiras diferentes para mesma resposta com "if" e "else" e também com "?" (se, escreve...) e ":" (se não, escreve...)
+		<br/><br/>
 		<form>
 			A <input type="number" name="a" id="a" required />
 			<br />
@@ -45,22 +48,25 @@
 			<br />
 			<input type="button" name="submit" id="btn2" value="Resultado">
 		</form>
-		<br /> Valor:
-		<i id="valor"></i>
+		<br /> Valor com if else 
+		<i id="modelo1"></i>
+		<br /> Valor com ? e : 
+		<i id="modelo2"></i>
 
-		<p>JS: escreva função para botão de alerta com ".onclick";
-			<br /> escreva uma condição de exibir resposta com if e else statement somando os 2 valores do input.</p>
 		<script language="javascript">
 			document.getElementById("btn2").onclick = function () { mostramaior() };
 			function mostramaior() {
 				var a = document.getElementById("a").value;
 				var b = document.getElementById("b").value;
-				var valor = document.getElementById("valor");
+				var modelo1 = document.getElementById("modelo1");
+				var modelo2 = document.getElementById("modelo2");
 				if (a > b) {
-					valor.innerHTML = "A é maior que B"
+					modelo1.innerHTML = "A é maior que B"
 				} else {
-					valor.innerHTML = "B é maior que A"
-				}
+					modelo1.innerHTML = "B é maior que A"
+				};
+
+				modelo2.innerHTML = (a > b) ? "A é maior que B" : modelo2.innerHTML = "B é maior que A";
 			}
 		</script>
 	</section>
