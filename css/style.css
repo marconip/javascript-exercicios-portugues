@@ -7,6 +7,12 @@ h1,
 h2,
 h3 {
     color: #888;
+    margin: 0 0 10px 0;
+}
+
+h4 {
+    font-size: 24px;
+    margin: 0 0 10px 0;
 }
 
 section {
@@ -24,7 +30,7 @@ p {
     color: #555;
 }
 
-label:hover, 
+label:hover,
 ul li:hover {
     cursor: pointer;
     background: #f9f9f9;
@@ -117,7 +123,8 @@ ul li:hover {
     cursor: pointer;
 }
 
-.active, .actives, 
+.active,
+.actives,
 .ativo {
     background-color: #000;
     color: white;
@@ -200,6 +207,7 @@ ul li:hover {
     from {
         -webkit-transform: scale(0)
     }
+
     to {
         -webkit-transform: scale(1)
     }
@@ -209,6 +217,7 @@ ul li:hover {
     from {
         transform: scale(0)
     }
+
     to {
         transform: scale(1)
     }

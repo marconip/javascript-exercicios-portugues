@@ -4,12 +4,15 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <link href="image/js.ico" rel="shortcut icon" />
+
     <link rel='stylesheet' href='css/style.css' type='text/css' />
-    <title>JS tutorial practicing</title>
+    <title>Javascript tutorial practicing</title>
 </head>
 
 <body>
-    <h1>Core Objects - Array, DateTime (setInterval)</h1>
+    <h1>Core Objects - Array, DateTime </h1>
+    <h2>setTimeout 1x e setInterval a cada tempo configurado</h2>
 
     <section id="escolhap">
         <b>Accessing an Array direto do html</b>
@@ -29,14 +32,14 @@
 
                 document.getElementById("demo").innerHTML = "Array 2 é: " + escolha[2].innerHTML;
             }
-            setInterval(minhaArray, 3000);
+            setTimeout(minhaArray, 3000);
         </script>
     </section>
 
 
     <section>
         <b>Accessing an Array</b>
-        <br /> (com if else) Busca todas as listas de "radio button" e escreve um resultado</b><br />
+        <br /> (com if else) Busca todas as listas de "radio button" e escreve um resultado</br><br />
         Dentro da função do botão inserir após o click tempo de 3 segundos e mostrará resultado.
         <br /><br />
         Selecione qual super heroi o Barry Allen é? <br /><br />
@@ -50,17 +53,17 @@
         <br />
         <input type="button" name="submit" value="Resultado" onclick="verResultado()">
         <br /><br />
-        <strong id="demo2"></strong>
+        <strong id="demo2">resposta em 3 segundos aparecerá aqui</strong>
 
         <script>
             function verResultado() {
-                setInterval(function () {
+                setTimeout(function () {
                     var checks = document.querySelectorAll(".meuscheckbox");
                     var declara = "";
                     if (checks[0].checked) {
                         declara = "Acertou!"
                     } else {
-                        declara = "Errou ou não respondeu, precisa ser pessoa mais rápida!"
+                        declara = "Errou ou não respondeu! Dica: pessoa mais rápida"
                     }
                     document.getElementById("demo2").innerHTML = declara;
                 }, 3000);
@@ -72,26 +75,29 @@
         <b>Date Object</b>
         <br />The Date Object = exibe o tempo/data
         <br />Após o click mostra funções: hora (com minutos e segundos), Data (dia, mês e ano) e dia da semana.
+        <br />Recarrega a cada 1 minuto.
         <br /><br />
         <input type="button" name="submit" value="Mostrar data" onclick="printTime()">
         <br /><br />
-        <strong id="mostrar"></strong>
+        <h4 id="mostrar"></h4>
 
         <script>
             function printTime() {
-                var meutempo = new Date();
-                var hora = meutempo.getHours();
-                var min = meutempo.getMinutes();
-                var sec = meutempo.getSeconds();
-                var dia = meutempo.getDate();
-                var meses = ["Jan", "Fev", "Mar", "Apr", "Mai", "Jun", "Jul", "Ago", "Set", "Octo", "Nov", "Dec"];
-                var ano = meutempo.getFullYear();
-                var semana = ["domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
+                setInterval(function () {
+                    var meutempo = new Date();
+                    var hora = meutempo.getHours();
+                    var min = meutempo.getMinutes();
+                    var sec = meutempo.getSeconds();
+                    var dia = meutempo.getDate();
+                    var meses = ["Jan", "Fev", "Mar", "Apr", "Mai", "Jun", "Jul", "Ago", "Set", "Octo", "Nov", "Dec"];
+                    var ano = meutempo.getFullYear();
+                    var semana = ["domingo", "Segunda", "Terça", "Quarta", "Quinta", "Sexta", "Sábado"];
 
-                document.getElementById("mostrar").innerHTML =
-                    "Hora: " + hora + ":" + min + ":" + sec + "<br/>" +
-                    "Data: " + dia + " de " + meses[meutempo.getMonth()] + " de " + ano + "<br/>" +
-                    semana[meutempo.getDay()];
+                    document.getElementById("mostrar").innerHTML =
+                        semana[meutempo.getDay()] + "<br/>" +
+                        "Data: " + dia + " de " + meses[meutempo.getMonth()] + " de " + ano + "<br/>" +
+                        "Hora: " + hora + ":" + min + ":" + sec;
+                }, 1000);
             };
         </script>
     </section>
